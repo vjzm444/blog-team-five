@@ -45,15 +45,12 @@
   align-items: center;
   margin-left: auto;
 }
-.header .header-upper .header-upper-wrapper .user-box span {
+.header .header-upper .header-upper-wrapper .user-box .link {
   margin-right: 0.9rem;
   cursor: pointer;
   font-size: 14px;
   font-weight: 550;
   color: #616161;
-}
-.header .header-upper .header-upper-wrapper .user-box span .link {
-  color: inherit;
 }
 .header .navbar {
   height: 3rem;

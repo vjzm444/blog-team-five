@@ -20,7 +20,9 @@ const Header = () => {
               <input type='text' id='search' placeholder='어떤 콘텐츠가 궁금하신가요?' />
             </div>
             <div className='user-box'>
-              <span>로그인</span>
+              <Link className='link' to='/login'>
+                로그인
+              </Link>
               <span className='write'>
                 <Link className='link' to='/write'>
                   글쓰기
