@@ -1,0 +1,91 @@
+.app .link {
+  text-decoration: none;
+}
+.app .container {
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.header .header-upper {
+  display: flex;
+  height: 4.5rem;
+  align-items: center;
+  background-color: #fff;
+}
+.header .header-upper .header-upper-wrapper {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+}
+.header .header-upper .header-upper-wrapper .navigation-logo {
+  display: flex;
+  align-items: center;
+  padding: 0 0.625rem;
+  height: 4rem;
+}
+.header .header-upper .header-upper-wrapper .navigation-logo img {
+  width: 4rem;
+  height: 4rem;
+}
+.header .header-upper .header-upper-wrapper .search-bar {
+  display: flex;
+  align-items: center;
+  width: 18.75rem;
+  height: 2.5rem;
+  cursor: pointer;
+  border: 1px solid #9e9e9e;
+  border-radius: 40px;
+}
+.header .header-upper .header-upper-wrapper .search-bar input {
+  border: none;
+  outline: none;
+}
+.header .header-upper .header-upper-wrapper .user-box {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.header .header-upper .header-upper-wrapper .user-box span {
+  margin-right: 0.9rem;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 550;
+  color: #616161;
+}
+.header .header-upper .header-upper-wrapper .user-box span .link {
+  color: inherit;
+}
+.header .navbar {
+  height: 3rem;
+  padding: 0;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.header .navbar .container {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.header .navbar .container .links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.header .navbar .container .links h6 {
+  padding: 0.75rem 1.25rem;
+  height: 100%;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #616161;
+}
+.header .navbar .container .links h6:hover {
+  color: #212121;
+}
+
+/*# sourceMappingURL=header.css.map */

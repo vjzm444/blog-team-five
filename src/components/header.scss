@@ -1,0 +1,93 @@
+@import '../App.scss';
+//@import '@/App.scss';
+
+.header{
+  .header-upper{
+    display: flex;
+    //justify-content: space-between;
+    height: 4.5rem;
+    align-items: center;
+    background-color: #fff;
+    .header-upper-wrapper{
+      height: 4.5rem;
+      display: flex;
+      align-items: center;
+      .navigation-logo{
+        display: flex;
+        align-items: center;
+        padding: 0 0.625rem;
+        height: 4rem;
+
+        img{
+          width: 4rem;
+          height: 4rem;
+        }
+      }
+      .search-bar{
+        display: flex;
+        align-items: center;
+        width: 18.75rem;
+        height: 2.5rem;
+        cursor: pointer;
+        border: 1px solid #9e9e9e;
+        border-radius: 40px;
+
+        input{
+          border:none;
+          outline: none;
+        }
+      }
+      .user-box{
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+        span{
+          margin-right: 0.9rem;
+          cursor: pointer;
+          font-size: 14px;
+          font-weight: 550;
+          color: $fontColor;
+          .link{
+            color: inherit;
+          }
+        }
+      }
+    }
+  }
+  .navbar{
+    height: 3rem;
+    padding: 0;
+    border-bottom: 1px solid #e0e0e0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    .container{
+      overflow-x: auto;
+      white-space: nowrap;
+
+      .links{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        h6{
+          padding: 0.75rem 1.25rem;
+          height: 100%;
+          display: inline-block;
+          font-size: 14px;
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: 1.71;
+          letter-spacing: normal;
+          color: $fontColor;
+
+          &:hover{
+            color: $fontHoverColor;
+          }
+        }
+      }
+    }
+  }
+}

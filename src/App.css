@@ -1,6 +1,16 @@
-.App {
-  background: #535bf2;
-  color: white;
+.app {
+  display: flex;
+  justify-content: center;
+}
+.app .container {
+  width: 95%;
+  margin: auto;
+}
+.app .container .link {
+  text-decoration: none;
+}
+.app .container .link:hover {
+  color: #212121;
 }
 
 /*# sourceMappingURL=App.css.map */
