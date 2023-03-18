@@ -1,20 +1,21 @@
 .layout{
-  height: 60%;
+  //height: 60%;
   .main-intro{
     width: 100%;
     background-blend-mode: multiply;
     background-image: linear-gradient(to bottom, #f4f0ff 20%, #fefeff 60%, #ffffff 80%);
     .container{
+      position:relative;
       .intro{
-        font-size: 1.563rem;
-        line-height: 2rem;
+        font-size: 25px;
+        line-height: 32px;
         font-weight: 300;
         font-stretch: normal;
         font-style: normal;
         letter-spacing: normal;
         color: #313131;
         position: relative;
-        padding: 4rem 0;
+        padding: 64px 0;
         .key-visual-guide{
           display: inline-block;
         }
@@ -27,11 +28,11 @@
           color: #313131;
         }
         .key-visual-guide-long-point{
-          font-size: 1.5rem;
-          line-height: 2.25rem;
-          width: 4rem;
+          font-size: 24px;
+          line-height: 36px;
+          width: 64px;
           background-color: #8e2de2;
-          height: 0.25rem;
+          height: 4px;
           display: block;
           position: absolute;
           opacity: .3;
@@ -53,12 +54,17 @@
         align-items: center;
 
         img{
-          margin-left: 0.313rem;
+          margin-left: 5px;
         }
       }
       .main-list-row{
         border-bottom: 1px solid #f5f5f5;
-        padding: 3.75rem 0;
+        padding: 60px 0;
+        // @media (min-width: 729px)
+        //display: flex;
+        //justify-content: space-between;
+        // @media (max-width: 729px) flex말고 기존처럼 margin-bottom으로 변경해도 무방
+
       }
     }
   }

@@ -15,7 +15,7 @@ const Header = () => {
             </Link>
             <div className='search-bar'>
               <label htmlFor='search'>
-                <FiSearch style={{ color: '#9e9e9e' }}></FiSearch>
+                <FiSearch style={{ color: '#9e9e9e', margin: '0 10px' }}></FiSearch>
               </label>
               <input type='text' id='search' placeholder='어떤 콘텐츠가 궁금하신가요?' />
             </div>
