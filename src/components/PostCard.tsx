@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { AiOutlineClockCircle } from 'react-icons/ai';
 import { HiLightningBolt } from 'react-icons/hi';
-import { Post } from '@/pages/HomePage';
-import './maincard.scss';
+import { Post } from '@/common/types';
+import './postcard.scss';
+import { getElapsedTime } from '@/common/date';
 
 interface PostProps {
   post: Post;
 }
 
-const MainCard = (props: PostProps) => {
+const PostCard = (props: PostProps) => {
   const { post } = props;
   return (
     <div className='list-item-link'>
@@ -31,13 +32,13 @@ const MainCard = (props: PostProps) => {
             </Link>
             <div className='content-meta-elem content-meta-sep'>|</div>
             <AiOutlineClockCircle className='meta-icon' />
-            <div className='content-meta-elem'>9분</div>
+            <div className='content-meta-elem'>{getElapsedTime(post.updateDt)}</div>
             <div className='content-meta-elem content-meta-sep'>|</div>
             <HiLightningBolt style={{ color: '#FFDA6A' }} />
             <div className='content-meta-elem'>인기</div>
           </div>
           <Link className='link' to={`/post/${post.id}`}>
-            <p className='list-item-description'>{post.desc}</p>
+            <p className='list-item-description'>{post.content}</p>
           </Link>
           <div className='author-info'>
             <img
@@ -53,4 +54,4 @@ const MainCard = (props: PostProps) => {
   );
 };
 
-export default MainCard;
+export default PostCard;

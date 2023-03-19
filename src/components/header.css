@@ -1,6 +1,11 @@
 .app .link {
   text-decoration: none;
 }
+@media (min-width: 729px) {
+  .app .layout {
+    min-height: unset;
+  }
+}
 .app .container {
   width: 1080px;
   margin: 0 auto;
@@ -37,6 +42,7 @@
   border-radius: 40px;
 }
 .header .header-upper .header-upper-wrapper .search-bar input {
+  width: 80%;
   border: none;
   outline: none;
 }

@@ -12,12 +12,21 @@ $fontHoverColor: #212121;
   //
   //
   //}
-
-  .link{
+  .link {
     text-decoration: none;
   }
 
-  .container{
+  @media (min-width: 729px) {
+    .layout {
+      min-height: unset;
+    }
+  }
+
+  //@media (min-width: 729px)
+  //.layout {
+  //  min-height: 960px;
+  //}
+  .container {
     // 모두 적용시키기(rem) + media query
     width: 1080px;
     margin: 0 auto;
