@@ -23,11 +23,9 @@ const Header = () => {
               <Link className='link' to='/login'>
                 로그인
               </Link>
-              <span className='write'>
-                <Link className='link' to='/write'>
-                  글쓰기
-                </Link>
-              </span>
+              <Link className='link' to='/write'>
+                글쓰기
+              </Link>
             </div>
           </div>
         </div>
