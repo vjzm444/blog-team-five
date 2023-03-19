@@ -64,6 +64,28 @@ const SinglePage = () => {
             </div>
           </div>
         </div>
+        <div className='next-news-contents news-highlight-box'>
+          <p style={{ textAlign: 'justify' }}>
+            최근 ChatGPT가 여러 분야에서 화제가 되고 있습니다.&nbsp;벌써 많은 사람들이 ChatGPT를
+            이용하여 아이디어를 얻고,&nbsp;보고서를 만들고,&nbsp;번거로운 업무를 자동화하는 등 여러
+            가지 시도가 이어지고 있는데요.&nbsp;이와 관련해서 이번 글에서는 개발자 관점에서
+            ChatGPT를 소프트웨어 개발에 어떻게 활용할 수 있는지 알아보고, ChatGPT의 한계에 대해서도
+            간단히 정리해 보았습니다.
+          </p>
+          <p style={{ textAlign: 'justify' }}>&nbsp;</p>
+          <h3 style={{ textAlign: 'justify' }}>
+            <strong>ChatGPT&nbsp;소개 및 사용 방법</strong>
+          </h3>
+          <h4 style={{ textAlign: 'justify' }}>
+            <strong>1) ChatGPT&nbsp;소개</strong>
+          </h4>
+          <p style={{ textAlign: 'justify' }}>
+            ChatGPT는 Open AI에서 개발한 대규모 언어 모델입니다.&nbsp;자연어 처리 분야에서 다루는
+            신경망의 일종인 트랜스포머 아키텍처(Transformer Architecture)를 기반으로 하고
+            있으며,&nbsp;약 1,750억 개의 매개 변수를 통해 사용자의 질의를 이해하고,&nbsp;응답할 수
+            있는 기능을 제공하는 인공지능 서비스입니다.&nbsp;
+          </p>
+        </div>
       </div>
     </div>
   );
