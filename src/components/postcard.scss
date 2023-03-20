@@ -1,20 +1,20 @@
-.list-item-link{
+.list-item-link {
   display: inline-block;
   vertical-align: top;
   position: relative;
   width: 320px;
 
-  &+.list-item-link{
+  & + .list-item-link {
     margin-left: 60px;
   }
 
-  .list-item{
+  .list-item {
     width: 100%;
 
-    .list-item-thumbnail{
+    .list-item-thumbnail {
       margin-bottom: 24px;
 
-      .thumbnail-image{
+      .thumbnail-image {
         width: 100%;
         height: 180px;
         border-radius: 8px;
@@ -23,11 +23,11 @@
       }
     }
 
-    .item-main{
+    .item-main {
       display: block;
       margin-right: 20px;
 
-      .item-title{
+      .item-title {
         font-size: 20px;
         margin-bottom: 12px;
         font-weight: 500;
@@ -38,30 +38,8 @@
         color: #000000;
       }
 
-      .content-meta{
-        width: 100%;
-        font-size: 13px;
-        font-weight: 400;
-        color: #424242;
-        display: flex;
-        align-items: center;
-        .content-meta-elem{
-          display: inline-block;
-          line-height: 20px;
-          margin-right: 8px;
-          color: rgb(66,66,66);
-          &.content-meta-sep{
-            width: 1px;
-            color: #e0e0e0;
-          }
-        }
 
-        .meta-icon{
-          margin-right: 4px;
-        }
-      }
-
-      .list-item-description{
+      .list-item-description {
         display: -webkit-box;
         overflow: hidden;
         -webkit-line-clamp: 3;
@@ -74,11 +52,11 @@
         word-break: break-all;
       }
 
-      .author-info{
+      .author-info {
         display: flex;
         align-items: center;
 
-        .author-image{
+        .author-image {
           width: 20px;
           height: 20px;
           margin-right: 8px;

@@ -6,23 +6,21 @@ import { HotPost, Post } from '@/common/types';
 import { getHotPosts } from '@/api/post';
 
 const HomePage = () => {
-  const [hotPosts, setHotPosts] = useState<HotPost[]>([]);
+  const [hotPosts, setHotPosts] = useState<HotPost[] | null>(null);
   const category = useLocation().search; // get Query String > '?category=2'
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const res = await getHotPosts();
-        setHotPosts(res);
-      } catch (error) {
-        console.log(error);
-      }
+      const res = await getHotPosts();
+      setHotPosts(res);
     };
 
     fetchData();
     // console.log(category);
   }, [category]);
-
+  if (!hotPosts) {
+    return <div>Loading...</div>;
+  }
   return (
     <>
       <div className='main-intro'>

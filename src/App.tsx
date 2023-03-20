@@ -6,7 +6,7 @@ import ErrorPage from '@/pages/ErrorPage';
 import HomePage from '@/pages/HomePage';
 import RegisterPage from '@/pages/RegisterPage';
 import LoginPage from '@/pages/LoginPage';
-import SinglePage from '@/pages/SinglePage';
+import DetailPage from '@/pages/DetailPage';
 import WritePage from '@/pages/WritePage';
 import CategoryPage from '@/pages/CategoryPage';
 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/detail/:id',
-        element: <SinglePage />,
+        element: <DetailPage />,
       },
       {
         path: '/write',

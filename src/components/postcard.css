@@ -34,27 +34,6 @@
   letter-spacing: normal;
   color: #000000;
 }
-.list-item-link .list-item .item-main .content-meta {
-  width: 100%;
-  font-size: 13px;
-  font-weight: 400;
-  color: #424242;
-  display: flex;
-  align-items: center;
-}
-.list-item-link .list-item .item-main .content-meta .content-meta-elem {
-  display: inline-block;
-  line-height: 20px;
-  margin-right: 8px;
-  color: rgb(66, 66, 66);
-}
-.list-item-link .list-item .item-main .content-meta .content-meta-elem.content-meta-sep {
-  width: 1px;
-  color: #e0e0e0;
-}
-.list-item-link .list-item .item-main .content-meta .meta-icon {
-  margin-right: 4px;
-}
 .list-item-link .list-item .item-main .list-item-description {
   display: -webkit-box;
   overflow: hidden;
