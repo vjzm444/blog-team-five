@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { HotPost, Post } from '@/common/types';
 
-const API_BASE_URL = 'http://175.124.137.189:5555';
+// const API_BASE_URL = 'http://175.124.137.189:5555';
+export const API_BASE_URL = process.env.APP_HOME_URL;
 
 export async function getHotPosts(): Promise<HotPost[] | null> {
   try {
