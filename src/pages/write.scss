@@ -1,0 +1,27 @@
+.container.editor {
+  margin-top: 40px;
+  .editor-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .editor-title {
+      padding: 10px;
+      border: 1px solid lightgray;
+    }
+
+    .editor-container {
+      //overflow: scroll;
+      height: 500px;
+      //border: 1px solid lightgray;
+
+      .editor {
+        height: 100%;
+        border: none;
+      }
+    }
+  }
+
+  .menu {
+  }
+}

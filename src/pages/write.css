@@ -1,0 +1,21 @@
+.container.editor {
+  margin-top: 40px;
+}
+.container.editor .editor-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.container.editor .editor-content .editor-title {
+  padding: 10px;
+  border: 1px solid lightgray;
+}
+.container.editor .editor-content .editor-container {
+  height: 500px;
+}
+.container.editor .editor-content .editor-container .editor {
+  height: 100%;
+  border: none;
+}
+
+/*# sourceMappingURL=write.css.map */

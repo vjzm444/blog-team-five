@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { HotPost, Post } from '@/common/types';
 
-// const API_BASE_URL = 'http://175.124.137.189:5555';
-export const API_BASE_URL = process.env.APP_HOME_URL;
+export const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
 export async function getHotPosts(): Promise<HotPost[] | null> {
   try {
@@ -26,6 +25,15 @@ export async function getPost(id: string): Promise<Post | null> {
   }
 }
 
+export async function sendFormData(formData: FormData): Promise<{ url: string } | null> {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/upload`, formData);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+}
 // export async function createUser(user) {
 //   const response = await fetch(`${API_BASE_URL}/users`, {
 //     method: 'POST',
