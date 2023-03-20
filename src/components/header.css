@@ -75,7 +75,7 @@
   align-items: center;
   gap: 20px;
 }
-.header .navbar .container .links h6 {
+.header .navbar .container .links a div {
   padding: 12px 16px;
   height: 100%;
   display: inline-block;
@@ -87,8 +87,15 @@
   letter-spacing: normal;
   color: #616161;
 }
-.header .navbar .container .links h6:hover {
+.header .navbar .container .links a div:hover {
   color: #212121;
+}
+.header .navbar .container .links a.active div {
+  font-weight: 500;
+  padding: 12px 0 9px 0;
+  margin: 0 20px;
+  color: #212121;
+  border-bottom: solid 3px #6b16ee;
 }
 
 /*# sourceMappingURL=header.css.map */

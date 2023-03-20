@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './header.scss';
 import Logo from '@/img/Logo.png';
 import { FiSearch } from 'react-icons/fi';
@@ -33,21 +33,46 @@ const Header = () => {
       <div className='navbar'>
         <div className='container'>
           <div className='links'>
-            <Link className='link' to='/?category=1'>
-              <h6>NEW</h6>
-            </Link>
-            <Link className='link' to='/?category=2'>
-              <h6>기획</h6>
-            </Link>
-            <Link className='link' to='/?category=3'>
-              <h6>디자인</h6>
-            </Link>
-            <Link className='link' to='/?category=4'>
-              <h6>개발</h6>
-            </Link>
-            <Link className='link' to='/?category=5'>
-              <h6>프로덕트</h6>
-            </Link>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'active' : ''
+              }
+              to='/category/new'
+            >
+              <div>NEW</div>
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'active' : ''
+              }
+              to='/category/plan'
+            >
+              <div>기획</div>
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'active' : ''
+              }
+              to='/category/design'
+            >
+              <div>디자인</div>
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'active' : ''
+              }
+              to='/category/develop'
+            >
+              <div>개발</div>
+            </NavLink>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isPending ? 'pending' : isActive ? 'active' : ''
+              }
+              to='/category/product'
+            >
+              <div>프로덕트</div>
+            </NavLink>
           </div>
         </div>
       </div>

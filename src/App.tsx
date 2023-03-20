@@ -8,6 +8,7 @@ import RegisterPage from '@/pages/RegisterPage';
 import LoginPage from '@/pages/LoginPage';
 import SinglePage from '@/pages/SinglePage';
 import WritePage from '@/pages/WritePage';
+import CategoryPage from '@/pages/CategoryPage';
 
 const Layout = () => {
   return (
@@ -31,12 +32,16 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: '/post/:id',
+        path: '/detail/:id',
         element: <SinglePage />,
       },
       {
         path: '/write',
         element: <WritePage />,
+      },
+      {
+        path: '/category/:id',
+        element: <CategoryPage />,
       },
     ],
     errorElement: <ErrorPage />,
