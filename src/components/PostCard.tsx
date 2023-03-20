@@ -1,43 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { AiOutlineClockCircle } from 'react-icons/ai';
-import { HiLightningBolt } from 'react-icons/hi';
 import { Post } from '@/common/types';
 import './postcard.scss';
-import { getElapsedTime } from '@/common/date';
+import MetaContent from '@/components/MetaContent';
 
-interface PostProps {
-  post: Post;
-}
-
-const PostCard = (props: PostProps) => {
-  const { post } = props;
+const PostCard = ({ post }: { post: Post }) => {
   return (
     <div className='list-item-link'>
       <div className='list-item'>
         <div className='list-item-thumbnail'>
-          <Link className='link' to={`/post/${post.id}`}>
+          <Link className='link' to={`/detail/${post.id}`}>
             <img className='thumbnail-image' src={post.img} alt={post.id.toString()} />
           </Link>
         </div>
         <div className='item-main'>
           <h3>
-            <Link className='item-title link' to={`/post/${post.id}`}>
+            <Link className='item-title link' to={`/detail/${post.id}`}>
               {post.title}
             </Link>
           </h3>
-          <div className='content-meta'>
-            <Link className='content-meta-elem link' to={`/post/${post.id}`}>
-              {post.cat}
-            </Link>
-            <div className='content-meta-elem content-meta-sep'>|</div>
-            <AiOutlineClockCircle className='meta-icon' />
-            <div className='content-meta-elem'>{getElapsedTime(post.updateDt)}</div>
-            <div className='content-meta-elem content-meta-sep'>|</div>
-            <HiLightningBolt style={{ color: '#FFDA6A' }} />
-            <div className='content-meta-elem'>인기</div>
-          </div>
-          <Link className='link' to={`/post/${post.id}`}>
+          <MetaContent id={post.id} cat={post.cat} date={post.date} section='card' />
+          <Link className='link' to={`/detail/${post.id}`}>
             <p className='list-item-description'>{post.content}</p>
           </Link>
           <div className='author-info'>

@@ -19,10 +19,34 @@
   top: 75px;
 }
 
+.container .list-cover .list-item-link .list-item {
+  width: 100%;
+  border-bottom: 1px solid #eee;
+}
+.container .list-cover .list-item-link .list-item .item-main {
+  display: inline-block;
+}
 @media (min-width: 729px) {
   .container .list-cover {
     width: 704px;
     margin: 0 auto;
+  }
+  .container .list-cover .list-item-link {
+    display: inline-block;
+  }
+  .container .list-cover .list-item-link .list-item {
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+  }
+  .container .list-cover .list-item-link .list-item .item-main {
+    width: 546px;
+    margin-right: 48px;
+  }
+  .container .list-cover .list-item-link .list-item .item-main .item-title {
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    line-height: 1.5;
   }
 }
 

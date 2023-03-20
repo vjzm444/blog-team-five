@@ -16,6 +16,19 @@ $fontHoverColor: #212121;
     text-decoration: none;
   }
 
+  .flex-box{
+    display: flex;
+    align-items: center;
+  }
+
+  .list-text.card-title, .item-title.link-text{
+    display: block;
+  }
+
+  .mr-4{
+    margin-right: 4px !important;
+  }
+
   @media (min-width: 729px) {
     .layout {
       min-height: unset;

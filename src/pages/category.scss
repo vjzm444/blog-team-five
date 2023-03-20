@@ -1,5 +1,6 @@
 .list-key-visual {
   position: relative;
+
   .list-key-visual-image {
     width: 100%;
     object-fit: cover;
@@ -20,11 +21,47 @@
   }
 }
 
-.container{
+.container {
+
+  .list-cover {
+    .list-item-link {
+      .list-item {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+
+        .item-main {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
   @media (min-width: 729px) {
     .list-cover {
       width: 704px;
       margin: 0 auto;
+
+      .list-item-link {
+        display: inline-block;
+
+        .list-item {
+          padding-bottom: 32px;
+          margin-bottom: 32px;
+
+          .item-main {
+            width: 546px;
+            margin-right: 48px;
+
+            .item-title {
+              font-size: 20px;
+              margin-bottom: 8px;
+              font-weight: 500;
+              line-height: 1.5;
+            }
+          }
+        }
+      }
     }
   }
+
 }

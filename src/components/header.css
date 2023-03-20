@@ -1,6 +1,16 @@
 .app .link {
   text-decoration: none;
 }
+.app .flex-box {
+  display: flex;
+  align-items: center;
+}
+.app .list-text.card-title, .app .item-title.link-text {
+  display: block;
+}
+.app .mr-4 {
+  margin-right: 4px !important;
+}
 @media (min-width: 729px) {
   .app .layout {
     min-height: unset;

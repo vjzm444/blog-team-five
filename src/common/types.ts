@@ -10,5 +10,5 @@ export interface Post {
   title: string;
   content: string;
   cat: string;
-  updateDt: string;
+  date: string;
 }

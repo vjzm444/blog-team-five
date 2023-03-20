@@ -3,16 +3,26 @@ import { HotPost, Post } from '@/common/types';
 
 const API_BASE_URL = 'http://175.124.137.189:5555';
 
-export async function getHotPosts() {
-  const response = await axios.get<HotPost[]>(`${API_BASE_URL}/postList`);
-  // console.log(response);
-  return response.data;
+export async function getHotPosts(): Promise<HotPost[] | null> {
+  try {
+    const response = await axios.get<HotPost[]>(`${API_BASE_URL}/postList`);
+    // console.log(response);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
 }
 
-export async function getPost(id: string) {
-  const response = await axios.get<Post>(`${API_BASE_URL}/posts/${id}`);
-  // console.log(response);
-  return response.data;
+export async function getPost(id: string): Promise<Post | null> {
+  try {
+    const response = await axios.get<Post>(`${API_BASE_URL}/detail/${id}`);
+    // console.log(response);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
 }
 
 // export async function createUser(user) {
