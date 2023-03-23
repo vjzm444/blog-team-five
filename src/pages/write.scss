@@ -1,25 +1,59 @@
 .container.editor {
   margin-top: 40px;
+
   .content {
     display: flex;
-    flex-direction: column;
     gap: 20px;
 
-    .editor-title {
-      padding: 10px;
-      border: 1px solid lightgray;
-    }
+    .title-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
 
-    .editor-container {
-      //overflow: scroll;
-      height: 500px;
-      //border: 1px solid lightgray;
+      .title-name {
+        width: 100px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+      }
 
-      .editor {
-        height: 100%;
-        border: none;
+      .content-name {
+        width: 100px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
       }
     }
+
+    .editor-wrapper {
+      flex: 6;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .title-container {
+        padding: 10px;
+        border: 1px solid lightgray;
+      }
+
+      .editor-container {
+        //overflow: scroll;
+        height: 500px;
+        //border: 1px solid lightgray;
+
+        .editor {
+          height: 100%;
+          border: none;
+        }
+      }
+    }
+
   }
 
   .menu {
@@ -31,40 +65,41 @@
     .item {
       border: 1px solid lightgray;
       padding: 10px;
-      flex:1;
+      flex: 1;
       font-size: 12px;
       color: #555;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
 
-      h1{
+      h1 {
         font-size: 20px;
       }
 
-      .file{
+      .file {
         text-decoration: underline;
         cursor: pointer;
       }
-      .buttons{
+
+      .buttons {
         display: flex;
         justify-content: space-between;
         border: 1px solid #AC6EEE;
         padding: 3px;
         cursor: pointer;
 
-        &:first-child{
+        &:first-child {
           color: #AC6EEE;
           background-color: #EEEEEE;
         }
 
-        &:last-child{
+        &:last-child {
           color: #EEEEEE;
           background-color: #AC6EEE;
         }
       }
 
-      .cat{
+      .cat {
         display: flex;
         gap: 2px;
         align-items: center;

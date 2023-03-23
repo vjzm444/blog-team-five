@@ -25,7 +25,7 @@ const PostEditor = ({ quillRef, contents, setContents }: PostEditorProps) => {
     input.onchange = async () => {
       if (!input.files) return;
       const file = input.files[0];
-      formData.append('file', file); // 위에서 만든 폼데이터에 이미지 추가
+      formData.append('uploadFile', file); // 위에서 만든 폼데이터에 이미지 추가
       console.log(input.files, file);
       for (const [key, value] of formData.entries()) {
         console.log(key, value);

@@ -27,10 +27,9 @@ export async function getPost(id: string): Promise<Post | null> {
 
 export async function sendFormData(formData: FormData): Promise<{ url: string } | null> {
   try {
-    console.log(formData);
     // const response = await axios.post(`${API_BASE_URL}/upload`, formData);
-    const response = await axios.post(`http://localhost:8800/api/upload`, formData);
-    return response.data;
+    const response = await axios.post(`${API_BASE_URL}/ImageUpload`, formData);
+    return API_BASE_URL + response.data;
   } catch (e) {
     console.log(e);
     return null;
@@ -39,7 +38,7 @@ export async function sendFormData(formData: FormData): Promise<{ url: string } 
 
 export const getCategoryPosts = async (category: string): Promise<Post[] | null> => {
   try {
-    const response = await axios.get(`http://175.124.137.189:5555/categoryDataSelect/${category}`);
+    const response = await axios.get(`${API_BASE_URL}/categoryDataSelect/${category}`);
     return response.data;
   } catch (e) {
     console.log(e);

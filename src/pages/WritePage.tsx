@@ -55,15 +55,25 @@ const WritePage = () => {
     <>
       <div className='container editor'>
         <div className='content'>
-          <input
-            className='editor-title'
-            type='text'
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder='제목을 적어주세요'
-          />
-          <div className='editor-container'>
-            <PostEditor quillRef={quillRef} contents={contents} setContents={setContents} />
+          <div className='title-wrapper'>
+            <div className='title-name'>
+              <p>제목</p>
+            </div>
+            <div className='content-name'>
+              <p>내용</p>
+            </div>
+          </div>
+          <div className='editor-wrapper'>
+            <input
+              className='title-container'
+              type='text'
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder='제목을 적어주세요'
+            />
+            <div className='editor-container'>
+              <PostEditor quillRef={quillRef} contents={contents} setContents={setContents} />
+            </div>
           </div>
         </div>
         <div className='menu'>
@@ -104,46 +114,24 @@ const WritePage = () => {
             <div className='cat'>
               <input
                 type='radio'
-                checked={category === 'art'}
+                checked={category === 'new'}
                 name='cat'
-                value='art'
-                id='art'
+                value='new'
+                id='new'
                 onChange={(e) => setCategory(e.target.value)}
               />
-              <label htmlFor='art'>Art</label>
+              <label htmlFor='new'>New</label>
             </div>
             <div className='cat'>
               <input
                 type='radio'
-                checked={category === 'science'}
+                checked={category === 'plan'}
                 name='cat'
-                value='science'
-                id='science'
+                value='plan'
+                id='plan'
                 onChange={(e) => setCategory(e.target.value)}
               />
-              <label htmlFor='science'>Science</label>
-            </div>
-            <div className='cat'>
-              <input
-                type='radio'
-                checked={category === 'technology'}
-                name='cat'
-                value='technology'
-                id='technology'
-                onChange={(e) => setCategory(e.target.value)}
-              />
-              <label htmlFor='technology'>Technology</label>
-            </div>
-            <div className='cat'>
-              <input
-                type='radio'
-                checked={category === 'cinema'}
-                name='cat'
-                value='cinema'
-                id='cinema'
-                onChange={(e) => setCategory(e.target.value)}
-              />
-              <label htmlFor='cinema'>Cinema</label>
+              <label htmlFor='plan'>기획</label>
             </div>
             <div className='cat'>
               <input
@@ -154,18 +142,29 @@ const WritePage = () => {
                 id='design'
                 onChange={(e) => setCategory(e.target.value)}
               />
-              <label htmlFor='design'>Design</label>
+              <label htmlFor='design'>디자인</label>
             </div>
             <div className='cat'>
               <input
                 type='radio'
-                checked={category === 'food'}
+                checked={category === 'develop'}
                 name='cat'
-                value='food'
-                id='food'
+                value='develop'
+                id='develop'
                 onChange={(e) => setCategory(e.target.value)}
               />
-              <label htmlFor='food'>Food</label>
+              <label htmlFor='develop'>개발</label>
+            </div>
+            <div className='cat'>
+              <input
+                type='radio'
+                checked={category === 'product'}
+                name='cat'
+                value='product'
+                id='product'
+                onChange={(e) => setCategory(e.target.value)}
+              />
+              <label htmlFor='product'>프로덕트</label>
             </div>
           </div>
         </div>
