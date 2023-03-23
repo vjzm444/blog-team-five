@@ -23,7 +23,11 @@
 .container-wrapper .content-container .news-detail-header {
   padding-top: 36px;
 }
-.container-wrapper .content-container .news-detail-header .category {
+.container-wrapper .content-container .news-detail-header .category-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.container-wrapper .content-container .news-detail-header .category-wrapper .category {
   font-size: 13px;
   font-weight: 600;
   font-stretch: normal;
@@ -32,6 +36,14 @@
   letter-spacing: normal;
   color: #6b16ee;
   margin-bottom: 20px;
+}
+.container-wrapper .content-container .news-detail-header .category-wrapper .button-wrapper .edit-button {
+  margin-right: 3px;
+}
+.container-wrapper .content-container .news-detail-header .category-wrapper .button-wrapper .delete-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 .container-wrapper .content-container .news-detail-header .news-title {
   font-size: 32px;

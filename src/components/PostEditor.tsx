@@ -25,18 +25,22 @@ const PostEditor = ({ quillRef, contents, setContents }: PostEditorProps) => {
     input.onchange = async () => {
       if (!input.files) return;
       const file = input.files[0];
-      formData.append('image', file); // 위에서 만든 폼데이터에 이미지 추가
+      formData.append('file', file); // 위에서 만든 폼데이터에 이미지 추가
+      console.log(input.files, file);
+      for (const [key, value] of formData.entries()) {
+        console.log(key, value);
+      }
 
-      // 폼데이터를 서버에 넘겨 multer로 이미지 URL 받아오기
+      // 폼데이터를 서버에 넘겨 multer(js 파일 가공 미들웨어~!) 로 이미지 URL 받아오기
       // 파일 이미지를 서버에 저장하기 때문에 백엔드 통신을 통해 이미지를 저장하고 불러온다.
       const res = await sendFormData(formData);
       console.log(res);
       if (!res) {
-        alert('이미지 업로드에 실패하였습니다.');
+        alert('이미지 업로드에 실패하였습니다. 다시 시도해주세요!');
         return; //  return 할지 안할지 고민
       }
       // 백엔드 통신 성공시에 보내주는 이미지 url을 변수에 담는다.
-      const url = res.url;
+      const url = res; // res.url
       // 커서의 위치를 알고 해당 위치에 이미지 태그를 넣어주는 코드
       // 해당 DOM의 데이터가 필요하기에 useRef를 사용한다.
       const quill = quillRef.current?.getEditor();

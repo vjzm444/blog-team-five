@@ -4,6 +4,7 @@ import { AiOutlineClockCircle } from 'react-icons/ai';
 import { getCreateDate, getElapsedTime } from '@/common/date';
 import { HiLightningBolt } from 'react-icons/hi';
 import './meta.scss';
+import { getCatName } from '@/common/refactor';
 
 interface MetaProps {
   id?: number;
@@ -32,7 +33,7 @@ const MetaContent = ({ id, cat, date, section }: MetaProps) => {
       {section === 'card' ? (
         <>
           <Link className='content-meta-elem link' to={`/post/${id}`}>
-            {cat}
+            {getCatName(cat)}
           </Link>
           <div className='content-meta-elem content-meta-sep'>|</div>
         </>

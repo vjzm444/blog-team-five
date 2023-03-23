@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import './home.scss';
 import PostCard from '@/components/PostCard';
-import { useLocation } from 'react-router';
+// import { useLocation } from 'react-router';
 import { HotPost, Post } from '@/common/types';
 import { getHotPosts } from '@/api/post';
 
 const HomePage = () => {
   const [hotPosts, setHotPosts] = useState<HotPost[] | null>(null);
-  const category = useLocation().search; // get Query String > '?category=2'
+  // const category = useLocation().search; // get Query String > '?category=2'
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,7 +17,8 @@ const HomePage = () => {
 
     fetchData();
     // console.log(category);
-  }, [category]);
+    // 결국 catrgory를 의존성배열에서 없애니 해결 > category의 변경이 있을시 렌더링되기때문! (렌더링 초기시 x > 원할경우 빈배열)
+  }, []); // , commit 잊지말기 , hotPosts 추가시 무한루프
   if (!hotPosts) {
     return <div>Loading...</div>;
   }

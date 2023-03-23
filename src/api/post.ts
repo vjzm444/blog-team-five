@@ -27,13 +27,35 @@ export async function getPost(id: string): Promise<Post | null> {
 
 export async function sendFormData(formData: FormData): Promise<{ url: string } | null> {
   try {
-    const response = await axios.post(`${API_BASE_URL}/upload`, formData);
+    console.log(formData);
+    // const response = await axios.post(`${API_BASE_URL}/upload`, formData);
+    const response = await axios.post(`http://localhost:8800/api/upload`, formData);
     return response.data;
   } catch (e) {
     console.log(e);
     return null;
   }
 }
+
+export const getCategoryPosts = async (category: string): Promise<Post[] | null> => {
+  try {
+    const response = await axios.get(`http://175.124.137.189:5555/categoryDataSelect/${category}`);
+    return response.data;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};
+
+export const deletePost = async (postId: number) => {
+  try {
+    await axios.delete(`http://175.124.137.189:5555/delete/${postId}`);
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};
+
 // export async function createUser(user) {
 //   const response = await fetch(`${API_BASE_URL}/users`, {
 //     method: 'POST',

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import './detail.scss';
-import { getPost } from '@/api/post';
+import { deletePost, getPost } from '@/api/post';
 import { Post } from '@/common/types';
 import MetaContent from '@/components/MetaContent';
 import { Link } from 'react-router-dom';
+import { AiOutlineDelete } from 'react-icons/ai';
+import { BiEditAlt } from 'react-icons/all';
 
 /*
  * 1. postId에 맞는 포스트 정보를 가져오고 포스트가 가진 카테고리 정보를 이용해 navbar에 표시를 해준다.
@@ -13,6 +15,7 @@ import { Link } from 'react-router-dom';
  * */
 const DetailPage = () => {
   const { id: postId } = useParams();
+  const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
@@ -33,14 +36,28 @@ const DetailPage = () => {
 
   return (
     <>
-      <Link to='write?edit=1' state={post}>
-        수정하기
-      </Link>
-      <button onClick={(_) => console.log('삭제')}>삭제하기</button>
       <div className='container-wrapper'>
         <div className='content-container'>
           <div className='news-detail-header'>
-            <p className='category'>{post.cat}</p>
+            <div className='category-wrapper'>
+              <p className='category'>{post.cat}</p>
+              <div className='button-wrapper'>
+                <Link className='link edit-button' to={`/write?edit=${post.id}`} state={post}>
+                  <BiEditAlt size='24' color='#767676' />
+                </Link>
+                <button
+                  className='delete-button'
+                  onClick={(_) => {
+                    deletePost(post.id);
+                    console.log('delete success');
+                    // 삭제된 데이터가 남아있다. (브라우저에서 캐시되어 있기때문? -> chatgpt에 물어보기
+                    navigate('/');
+                  }}
+                >
+                  <AiOutlineDelete size='24' color='#767676' />
+                </button>
+              </div>
+            </div>
             <h1 className='news-title'>{post.title}</h1>
             <div className='news-detail-info'>
               <MetaContent date={post.date} cat={post.cat} section='detail' />
