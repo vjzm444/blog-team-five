@@ -16,9 +16,23 @@
     min-height: unset;
   }
 }
+@media (min-width: 729px) {
+  .app .layout {
+    min-height: 960px;
+  }
+}
 .app .container {
-  width: 1080px;
   margin: 0 auto;
+}
+@media (min-width: 729px) {
+  .app .container {
+    width: 1080px;
+  }
+}
+@media (max-width: 728px) {
+  .app .container {
+    width: 100%;
+  }
 }
 
 .header .header-upper {

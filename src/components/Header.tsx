@@ -23,7 +23,7 @@ const Header = () => {
               <Link className='link' to='/login'>
                 로그인
               </Link>
-              <Link className='link' to='/write' state='null'>
+              <Link className='link' to='/write' state={null}>
                 글쓰기
               </Link>
             </div>

@@ -16,16 +16,16 @@ $fontHoverColor: #212121;
     text-decoration: none;
   }
 
-  .flex-box{
+  .flex-box {
     display: flex;
     align-items: center;
   }
 
-  .list-text.card-title, .item-title.link-text{
+  .list-text.card-title, .item-title.link-text {
     display: block;
   }
 
-  .mr-4{
+  .mr-4 {
     margin-right: 4px !important;
   }
 
@@ -35,13 +35,20 @@ $fontHoverColor: #212121;
     }
   }
 
-  //@media (min-width: 729px)
-  //.layout {
-  //  min-height: 960px;
-  //}
+  .layout {
+    @media (min-width: 729px) {
+      min-height: 960px;
+    }
+  }
+
   .container {
-    // 모두 적용시키기(rem) + media query
-    width: 1080px;
     margin: 0 auto;
+    @media (min-width: 729px) {
+      width: 1080px;
+    }
+
+    @media (max-width: 728px) {
+      width: 100%;
+    }
   }
 }

@@ -31,8 +31,8 @@ const PostEditor = ({ quillRef, contents, setContents }: PostEditorProps) => {
         console.log(key, value);
       }
 
-      // 폼데이터를 서버에 넘겨 multer(js 파일 가공 미들웨어~!) 로 이미지 URL 받아오기
-      // 파일 이미지를 서버에 저장하기 때문에 백엔드 통신을 통해 이미지를 저장하고 불러온다.
+      /*폼데이터를 서버에 넘겨 multer(js 파일 가공 미들웨어~!) 로 이미지 URL 받아오기
+      파일 이미지를 서버에 저장하기 때문에 백엔드 통신을 통해 이미지를 저장하고 불러온다.*/
       const res = await sendFormData(formData);
       console.log(res);
       if (!res) {

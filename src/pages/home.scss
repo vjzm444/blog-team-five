@@ -6,9 +6,12 @@
 
   .container {
     position: relative;
+    @media (max-width: 728px){
+      padding: 24px;
+    }
 
     .intro {
-      font-size: 25px;
+      font-size: 22px;
       line-height: 32px;
       font-weight: 300;
       font-stretch: normal;
@@ -17,6 +20,10 @@
       color: #313131;
       position: relative;
       padding: 64px 0;
+
+      @media (max-width: 728px){
+        padding: 24px 0;
+      }
 
       .key-visual-guide {
         display: inline-block;
@@ -42,6 +49,12 @@
         opacity: .3;
         top: 125px;
         left: -2px;
+
+        @media (max-width: 728px){
+          top: 85px;
+          line-height: 32px;
+          font-size: 22px;
+        }
       }
     }
   }
@@ -49,6 +62,11 @@
 
 .container {
   .main-list { // 반응형을 위한 wrapper
+
+    @media (max-width: 728px) {
+
+    
+    }
     .main-list-title {
       font-size: 22px;
       font-weight: 500;

@@ -6,8 +6,13 @@
 .main-intro .container {
   position: relative;
 }
+@media (max-width: 728px) {
+  .main-intro .container {
+    padding: 24px;
+  }
+}
 .main-intro .container .intro {
-  font-size: 25px;
+  font-size: 22px;
   line-height: 32px;
   font-weight: 300;
   font-stretch: normal;
@@ -16,6 +21,11 @@
   color: #313131;
   position: relative;
   padding: 64px 0;
+}
+@media (max-width: 728px) {
+  .main-intro .container .intro {
+    padding: 24px 0;
+  }
 }
 .main-intro .container .intro .key-visual-guide {
   display: inline-block;
@@ -39,6 +49,13 @@
   opacity: 0.3;
   top: 125px;
   left: -2px;
+}
+@media (max-width: 728px) {
+  .main-intro .container .intro .key-visual-guide-long-point {
+    top: 85px;
+    line-height: 32px;
+    font-size: 22px;
+  }
 }
 
 .container .main-list .main-list-title {

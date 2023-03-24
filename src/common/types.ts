@@ -12,3 +12,17 @@ export interface Post {
   cat: string;
   date: string;
 }
+
+export interface CreatePost {
+  img: string;
+  title: string;
+  content: string;
+  cat: string;
+}
+
+export interface EditPost {
+  img?: string;
+  title?: string;
+  content?: string;
+  cat?: string;
+}
