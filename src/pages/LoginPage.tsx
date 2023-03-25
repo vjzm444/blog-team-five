@@ -1,7 +1,28 @@
 import './auth.scss';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AuthInput from '@/components/AuthInput';
 
 const LoginPage = () => {
+  const [inputs, setInputs] = useState({
+    username: '',
+    password: '',
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    try {
+      console.log(inputs);
+      // navigate('/');
+    } catch (err) {
+      // console.log(err.response.data);
+      console.log(err);
+    }
+  };
   return (
     <div className='auth'>
       <div className='auth-wrapper'>
@@ -26,7 +47,72 @@ const LoginPage = () => {
             />
           </div>
         </div>
-        <AuthInput />
+        <div className='input-section'>
+          <div className='input-section-wrapper'>
+            <div className='title-header mb32'>로그인</div>
+            <form>
+              <div className='input-box'>
+                <AuthInput
+                  title={'아이디'}
+                  maxLength={100}
+                  name={'username'}
+                  placeholder={'ID@example.com'}
+                  type={'text'}
+                  onChangeFunc={handleChange}
+                />
+                {/*<span className='error-text'>에러상세 메시지</span>*/}
+                {/*<span className='error-text-custom'>아이디 또는 이메일을 입력해주세요.</span>*/}
+              </div>
+              <div className='input-box'>
+                <AuthInput
+                  title={'비밀번호'}
+                  maxLength={32}
+                  name={'password'}
+                  placeholder={'비밀번호를 입력해 주세요.'}
+                  type={'password'}
+                  onChangeFunc={handleChange}
+                />
+                {/*<span className='error-text'>에러상세 메시지</span>*/}
+                {/*<span className='error-text-custom'>비밀번호를 입력해 주세요.</span>*/}
+              </div>
+
+              <div className='mb24 sub-action'>
+                <div className='input-box'>
+                  <label className='checkbox-wishket'>
+                    <span>
+                      <input
+                        className='wishket-checkbox theme-wishket'
+                        name='remember_me'
+                        type='checkbox'
+                        value='remember_me'
+                      />
+                    </span>
+                    <span>로그인 상태 유지</span>
+                  </label>
+                </div>
+                <div className='sub-action-link'>
+                  <Link className='link-href link' to='#'>
+                    비밀번호 찾기
+                  </Link>
+                </div>
+              </div>
+              <button
+                className='mb16 btn-wishket'
+                id='submitBtn'
+                type='button'
+                onClick={handleClick}
+              >
+                로그인
+              </button>
+              <div className='border-sub-action'>
+                계정이 없으시다구요?
+                <Link to='/register' className='link-href link'>
+                  가입하기
+                </Link>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
