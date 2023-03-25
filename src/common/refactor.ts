@@ -25,7 +25,6 @@ export const getCatName = (category: string) => {
 };
 export const sanitizeHTML = (html: string): string => {
   const config = { USE_PROFILES: { html: true } };
-
   return DOMPurify.sanitize(html, config);
 };
 

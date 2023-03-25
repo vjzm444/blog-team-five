@@ -110,6 +110,11 @@
   user-select: none;
   border-radius: 4px;
 }
+.auth .auth-wrapper .input-section .input-section-wrapper .error-text {
+  font-size: 12px;
+  text-align: center;
+  color: red;
+}
 .auth .auth-wrapper .input-section .input-section-wrapper .border-sub-action {
   text-align: center;
   padding-top: 16px;

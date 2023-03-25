@@ -95,7 +95,11 @@
   align-items: center;
   margin-left: auto;
 }
-.header .header-upper .header-upper-wrapper .user-box .link {
+.header .header-upper .header-upper-wrapper .user-box .logout-button {
+  border: none;
+  background-color: transparent;
+}
+.header .header-upper .header-upper-wrapper .user-box .link, .header .header-upper .header-upper-wrapper .user-box .logout-button, .header .header-upper .header-upper-wrapper .user-box .user-name {
   margin-right: 14.4px;
   cursor: pointer;
   font-size: 14px;

@@ -1,26 +1,34 @@
 import './auth.scss';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthInput from '@/components/AuthInput';
+import { AuthContext } from '@/context/authContext';
+import { useNavigate } from 'react-router';
 
 const LoginPage = () => {
   const [inputs, setInputs] = useState({
     username: '',
     password: '',
   });
-
+  const { handleLogIn } = useContext(AuthContext);
+  const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    try {
-      console.log(inputs);
-      // navigate('/');
-    } catch (err) {
+    console.log(inputs);
+    const res = await handleLogIn(inputs);
+
+    console.log(res);
+    if (!res) {
+      setError('로그인에 실패하셨습니다. 다시 입력해주세요.');
       // console.log(err.response.data);
-      console.log(err);
+      console.log(res);
+    } else {
+      navigate('/');
     }
   };
   return (
@@ -100,10 +108,11 @@ const LoginPage = () => {
                 className='mb16 btn-wishket'
                 id='submitBtn'
                 type='button'
-                onClick={handleClick}
+                onClick={handleSubmit}
               >
                 로그인
               </button>
+              {error && <p className='error-text'>{error}</p>}
               <div className='border-sub-action'>
                 계정이 없으시다구요?
                 <Link to='/register' className='link-href link'>

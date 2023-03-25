@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './header.scss';
 import Logo from '@/img/Logo.png';
 import { FiSearch } from 'react-icons/fi';
+import { AuthContext } from '@/context/authContext';
 
 const Header = () => {
+  const { currentUser, handleLogOut } = useContext(AuthContext);
   return (
     <div className='header'>
       <div className='header-upper'>
@@ -20,9 +22,16 @@ const Header = () => {
               <input type='text' id='search' placeholder='어떤 콘텐츠가 궁금하신가요?' />
             </div>
             <div className='user-box'>
-              <Link className='link' to='/login'>
-                로그인
-              </Link>
+              {currentUser && <span className='user-name'>{currentUser.username}</span>}
+              {currentUser ? (
+                <button className='logout-button' onClick={handleLogOut}>
+                  로그아웃
+                </button>
+              ) : (
+                <Link className='link' to='/login'>
+                  로그인
+                </Link>
+              )}
               <Link className='link' to='/write' state={null}>
                 글쓰기
               </Link>

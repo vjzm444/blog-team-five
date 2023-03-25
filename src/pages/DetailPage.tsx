@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import './detail.scss';
 import { deletePost, getPost } from '@/api/post';
@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/all';
 import { getCatName, sanitizeHTML } from '@/common/refactor';
+import { AuthContext } from '@/context/authContext';
 
 /*
  * 1. postId에 맞는 포스트 정보를 가져오고 포스트가 가진 카테고리 정보를 이용해 navbar에 표시를 해준다.
@@ -18,6 +19,7 @@ const DetailPage = () => {
   const { id: postId } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);
+  const { currentUser } = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {

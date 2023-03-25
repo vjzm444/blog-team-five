@@ -26,3 +26,25 @@ export interface EditPost {
   content?: string;
   cat?: string;
 }
+
+export interface UserContext {
+  // accessToken: string | null;
+  // refreshToken: string | null;
+  // setAccessToken: (token: string | null) => void;
+  // setRefreshToken: (token: string | null) => void;
+  currentUser: UserState | null;
+  handleLogIn: (inputs: User) => Promise<UserState | null>;
+  handleLogOut: () => Promise<void>;
+}
+
+export interface User {
+  username: string;
+  password: string;
+}
+
+export interface UserState {
+  username: string;
+  email: string;
+  id: number;
+  img: string;
+}
