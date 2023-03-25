@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Post } from '@/common/types';
 import './postcard.scss';
 import MetaContent from '@/components/MetaContent';
+import { customSanitizeHTML, sanitizeHTML } from '@/common/refactor';
 // postcard의 list-item-link가 왜 category의 list-item-link에서 요소를 확인할 수 있을까
 const PostCard = ({ post }: { post: Post }) => {
   return (
@@ -15,13 +16,20 @@ const PostCard = ({ post }: { post: Post }) => {
         </div>
         <div className='item-main'>
           <h3>
-            <Link className='item-title link' to={`/detail/${post.id}`}>
-              {post.title}
-            </Link>
+            <Link
+              className='item-title link'
+              to={`/detail/${post.id}`}
+              dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.title) }}
+            ></Link>
           </h3>
           <MetaContent id={post.id} cat={post.cat} date={post.date} section='card' />
           <Link className='link' to={`/detail/${post.id}`}>
-            <p className='list-item-description'>{post.content}</p>
+            <p
+              className='list-item-description'
+              dangerouslySetInnerHTML={{
+                __html: customSanitizeHTML(post.content),
+              }}
+            ></p>
           </Link>
           <div className='author-info'>
             <img

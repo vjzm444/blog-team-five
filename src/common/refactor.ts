@@ -1,3 +1,5 @@
+import DOMPurify from 'dompurify';
+
 export const getCatName = (category: string) => {
   let result = '';
   switch (category) {
@@ -20,4 +22,14 @@ export const getCatName = (category: string) => {
       break;
   }
   return result;
+};
+export const sanitizeHTML = (html: string): string => {
+  const config = { USE_PROFILES: { html: true } };
+
+  return DOMPurify.sanitize(html, config);
+};
+
+export const customSanitizeHTML = (html: string): string => {
+  const config = { FORBID_TAGS: ['img'] };
+  return DOMPurify.sanitize(html, config);
 };

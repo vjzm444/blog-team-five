@@ -7,6 +7,7 @@ import MetaContent from '@/components/MetaContent';
 import { Link } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/all';
+import { getCatName, sanitizeHTML } from '@/common/refactor';
 
 /*
  * 1. postId에 맞는 포스트 정보를 가져오고 포스트가 가진 카테고리 정보를 이용해 navbar에 표시를 해준다.
@@ -40,7 +41,7 @@ const DetailPage = () => {
         <div className='content-container'>
           <div className='news-detail-header'>
             <div className='category-wrapper'>
-              <p className='category'>{post.cat}</p>
+              <p className='category'>{getCatName(post.cat)}</p>
               <div className='button-wrapper'>
                 <Link className='link edit-button' to={`/write?edit=${post.id}`} state={post}>
                   <BiEditAlt size='24' color='#767676' />
@@ -58,13 +59,19 @@ const DetailPage = () => {
                 </button>
               </div>
             </div>
-            <h1 className='news-title'>{post.title}</h1>
+            <h1
+              className='news-title'
+              dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.title) }}
+            ></h1>
             <div className='news-detail-info'>
               <MetaContent date={post.date} cat={post.cat} section='detail' />
             </div>
           </div>
           <div className='next-news-contents news-highlight-box'>
-            <p style={{ textAlign: 'justify' }}>{post.content}</p>
+            <p
+              style={{ textAlign: 'justify' }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }}
+            ></p>
             <p style={{ textAlign: 'justify' }}>&nbsp;</p>
             <h3 style={{ textAlign: 'justify' }}>
               <strong>ChatGPT&nbsp;소개 및 사용 방법</strong>
@@ -72,7 +79,10 @@ const DetailPage = () => {
             <h4 style={{ textAlign: 'justify' }}>
               <strong>1) ChatGPT&nbsp;소개</strong>
             </h4>
-            <p style={{ textAlign: 'justify' }}>{post.content}</p>
+            <p
+              style={{ textAlign: 'justify' }}
+              dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }}
+            ></p>
           </div>
         </div>
       </div>
