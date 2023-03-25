@@ -1,9 +1,37 @@
 .auth {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   min-height: 100vh;
-  background-image: linear-gradient(to bottom, #f4f0ff 20%, #fefeff 60%, #ffffff 80%);
+  height: 100%;
+  min-width: 1080px;
+  background-color: #ffffff;
+}
+.auth .auth-wrapper {
+  display: flex;
+  min-height: 100vh;
+  height: 100%;
+}
+.auth .auth-wrapper .title-header {
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: 400;
+  color: #212121;
+}
+.auth .auth-wrapper .logo-section {
+  width: 43%;
+  height: 100%;
+  display: flex;
+  margin: 0 auto;
+  background-color: #fafafa;
+}
+.auth .auth-wrapper .logo-section .logo-section-wrapper {
+  position: absolute;
+  left: 25%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+}
+.auth:after {
+  content: " ";
+  display: block;
+  clear: both;
 }
 
 /*# sourceMappingURL=auth.css.map */

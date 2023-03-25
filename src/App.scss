@@ -29,6 +29,31 @@ $fontHoverColor: #212121;
     margin-right: 4px !important;
   }
 
+  .mb6{
+    margin-bottom: 6px;
+  }
+
+  .mb16{
+    margin-bottom: 16px;
+  }
+  .mb24{
+    margin-bottom: 24px;
+  }
+
+  .mb32{
+    margin-bottom: 32px;
+  }
+
+  .text600{
+    color: #616161;
+  }
+
+  .body-2{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
   @media (min-width: 729px) {
     .layout {
       min-height: unset;

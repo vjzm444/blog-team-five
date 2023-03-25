@@ -11,6 +11,26 @@
 .app .mr-4 {
   margin-right: 4px !important;
 }
+.app .mb6 {
+  margin-bottom: 6px;
+}
+.app .mb16 {
+  margin-bottom: 16px;
+}
+.app .mb24 {
+  margin-bottom: 24px;
+}
+.app .mb32 {
+  margin-bottom: 32px;
+}
+.app .text600 {
+  color: #616161;
+}
+.app .body-2 {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 400;
+}
 @media (min-width: 729px) {
   .app .layout {
     min-height: unset;
