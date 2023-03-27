@@ -15,19 +15,6 @@
   font-weight: 400;
   color: #212121;
 }
-.auth .auth-wrapper .logo-section {
-  width: 43%;
-  height: 100%;
-  display: flex;
-  margin: 0 auto;
-  background-color: #fafafa;
-}
-.auth .auth-wrapper .logo-section .logo-section-wrapper {
-  position: absolute;
-  left: 25%;
-  top: 45%;
-  transform: translate(-50%, -50%);
-}
 .auth .auth-wrapper .input-section {
   width: 57%;
   min-height: 100vh;

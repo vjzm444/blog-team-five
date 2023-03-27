@@ -2,92 +2,110 @@ import './auth.scss';
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthInput from '@/components/AuthInput';
-import { AuthContext } from '@/context/authContext';
+// import { AuthContext } from '@/context/authContext';
 import { useNavigate } from 'react-router';
+import AuthLogo from '@/components/AuthLogo';
+import axios from '@/api/axios';
+import useAuth from '@/hooks/useAuth';
+
+const LOGIN_URL = '/auth';
 
 const LoginPage = () => {
   const [userId, setUserId] = useState('');
-  const [userFocus, setUserFocus] = useState(false);
-  const [password, setPassword] = useState('');
-  const [pwdFocus, setPwdFocus] = useState(false);
+  // const [validId, setValidId] = useState(false);
 
-  const { handleLogIn } = useContext(AuthContext);
+  const [password, setPassword] = useState('');
+  // const [validPwd, setValidPwd] = useState(false);
+
+  const [isClickBtn, setisClickBtn] = useState(false);
+
+  // const { handleLogIn } = useContext(AuthContext);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
+  const { setAuth } = useAuth();
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    // console.log(inputs);
-    const res = await handleLogIn({ username: userId, password });
-
-    console.log(res);
+    setisClickBtn(true);
+    /*const res = await handleLogIn({ username: userId, password });
     if (!res) {
       setError('로그인에 실패하셨습니다. 다시 입력해주세요.');
       // console.log(err.response.data);
       console.log(res);
     } else {
       navigate('/');
+    }*/
+
+    try {
+      console.log('hi');
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ user: userId, pwd: password }),
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          withCredentials: true,
+        },
+      );
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response?.data?.accessToken;
+      const roles = response?.data?.roles;
+      setAuth({ user: userId, pwd: password, roles, accessToken });
+      // access token을 받는다.
+      setUserId('');
+      setPassword('');
+      navigate('/');
+    } catch (err) {
+      console.log(error);
+      /*유저 데이터와 비밀번호 둘 중 하나라도 잘못된 정보일 경우 서버에서
+       * 그에 맞는 에러를 반환해주면 (ex.401) 해당 에러를 가지고 setError()에
+       * 비밀번호 or 아이디가 잘못되었다는 미시지 반환
+       *
+       * ex. "아이디(이메일) 또는 비밀번호를 잘못 입력했습니다.
+       * 입력하신 내용을 다시 확인해 주세요."
+       * */
     }
   };
   return (
     <div className='auth'>
       <div className='auth-wrapper'>
-        <div className='logo-section'>
-          <div className='logo-section-wrapper'>
-            <div className='title-header mb6'>
-              다양한 서비스를
-              <br />
-              하나의 계정으로!
-            </div>
-            <div className='body-2 text600 mb32'>
-              메거진 서비스뿐만 아니라 댓글, 좋아요까지
-              <br />
-              하나의 계정으로 간편하게 이용해 보세요
-            </div>
-            <img
-              src='https://account.wishket.com/static/renewal/img/wishket-member/img_login_account.png'
-              srcSet='https://account.wishket.com/static/renewal/img/wishket-member/img_login_account.png 1x,
-                  https://account.wishket.com/static/renewal/img/wishket-member/img_login_account@2x.png 2x,
-                  https://account.wishket.com/static/renewal/img/wishket-member/img_login_account@3x.png 3x'
-              alt='login'
-            />
-          </div>
-        </div>
+        <AuthLogo />
         <section className='input-section'>
           <div className='input-section-wrapper'>
             <div className='title-header mb32'>로그인</div>
             <form>
               <div className='input-box'>
                 <AuthInput
-                  title='아이디'
-                  id='username'
+                  title='아이디 또는 이메일'
+                  id='email'
                   maxLength={100}
-                  name='username'
+                  name='email'
                   placeholder='ID@example.com'
                   type='text'
-                  value={userId}
                   onChangeFunc={(e) => setUserId(e.target.value)}
-                  onFocusFunc={() => setUserFocus(true)}
-                  onBlurFunc={() => setUserFocus(false)}
+                  value={userId}
+                  errorMode={isClickBtn && userId.length < 6}
+                  errMsg={
+                    !userId
+                      ? '아이디 또는 이메일을 입력해주세요.'
+                      : '6글자 이상의 영문자, 숫자, 특수기호(_)만 사용 가능합니다.'
+                  }
                 />
-                {/*<span className='error-text'>에러상세 메시지</span>*/}
-                {/*<span className='error-text-custom'>아이디 또는 이메일을 입력해주세요.</span>*/}
               </div>
               <div className='input-box'>
                 <AuthInput
                   title='비밀번호'
                   id='password'
-                  maxLength={32}
+                  maxLength={100}
                   name='password'
-                  placeholder={'비밀번호를 입력해 주세요.'}
+                  placeholder='비밀번호를 입력해 주세요.'
                   type='password'
-                  value={password}
                   onChangeFunc={(e) => setPassword(e.target.value)}
-                  onFocusFunc={() => setPwdFocus(true)}
-                  onBlurFunc={() => setPwdFocus(false)}
+                  value={password}
+                  errorMode={isClickBtn && password.length < 8}
+                  errMsg={!password ? '비밀번호를 입력해 주세요.' : '8글자 이상 입력해 주세요.'}
                 />
-                {/*<span className='error-text'>에러상세 메시지</span>*/}
-                {/*<span className='error-text-custom'>비밀번호를 입력해 주세요.</span>*/}
               </div>
 
               <div className='mb24 sub-action'>

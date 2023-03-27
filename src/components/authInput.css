@@ -26,17 +26,17 @@
 .default-input .wishket-text:hover, .default-input .wishket-text:focus {
   border-color: #3ba3c7;
 }
-.default-input + .error {
+.default-input.error {
   margin-top: 0;
 }
-.default-input + .error .wishket-text {
+.default-input.error .wishket-text {
   border-color: #e52929;
   color: #e52929;
 }
-.default-input + .error .wishket-text:hover {
+.default-input.error .wishket-text:hover {
   border-color: #e52929;
 }
-.default-input + .error .wishket-text:focus {
+.default-input.error .wishket-text:focus {
   border-color: #3ba3c7;
   color: #616161;
 }

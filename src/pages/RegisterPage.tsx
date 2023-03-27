@@ -3,6 +3,8 @@ import './auth.scss';
 import { Link } from 'react-router-dom';
 import AuthInput from '@/components/AuthInput';
 import axios from '@/api/axios';
+import AuthLogo from '@/components/AuthLogo';
+import { useNavigate } from 'react-router';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const USER_REGEX = /^[A-z][A-z0-9_]{5,23}$/;
@@ -24,6 +26,9 @@ const RegisterPage = () => {
   const [validMatch, setValidMatch] = useState(false);
 
   const [isClickBtn, setisClickBtn] = useState(false);
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     setValidEmail(EMAIL_REGEX.test(email));
   }, [email]);
@@ -58,7 +63,7 @@ const RegisterPage = () => {
       setUserName('');
       setPassword('');
       setMatchPassword('');
-      // navigate('/');
+      navigate('/login');
     } catch (err) {
       // console.log(err.response.data);
       console.log(err);
@@ -68,27 +73,7 @@ const RegisterPage = () => {
   return (
     <div className='auth'>
       <div className='auth-wrapper'>
-        <div className='logo-section'>
-          <div className='logo-section-wrapper'>
-            <div className='title-header mb6'>
-              다양한 서비스를
-              <br />
-              하나의 계정으로!
-            </div>
-            <div className='body-2 text600 mb32'>
-              메거진 서비스뿐만 아니라 댓글, 좋아요까지
-              <br />
-              하나의 계정으로 간편하게 이용해 보세요
-            </div>
-            <img
-              src='https://account.wishket.com/static/renewal/img/wishket-member/img_login_account.png'
-              srcSet='https://account.wishket.com/static/renewal/img/wishket-member/img_login_account.png 1x,
-                  https://account.wishket.com/static/renewal/img/wishket-member/img_login_account@2x.png 2x,
-                  https://account.wishket.com/static/renewal/img/wishket-member/img_login_account@3x.png 3x'
-              alt='register'
-            />
-          </div>
-        </div>
+        <AuthLogo />
         <section className='input-section'>
           <div className='input-section-wrapper'>
             <div className='title-header mb32'>회원가입</div>
@@ -175,11 +160,6 @@ const RegisterPage = () => {
                     </span>
                     <span>이용약관 및 개인정보 처리방침에 동의합니다.</span>
                   </label>
-                </div>
-                <div className='sub-action-link'>
-                  <Link className='link-href link' to='#'>
-                    비밀번호 찾기
-                  </Link>
                 </div>
               </div>
               <button

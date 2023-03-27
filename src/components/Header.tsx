@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import './header.scss';
 import Logo from '@/img/Logo.png';
 import { FiSearch } from 'react-icons/fi';
-import { AuthContext } from '@/context/authContext';
+import useAuth from '@/hooks/useAuth';
 
 const Header = () => {
-  const { currentUser, handleLogOut } = useContext(AuthContext);
+  // const { currentUser, handleLogOut } = useContext(AuthContext);
+  const { auth } = useAuth();
   return (
     <div className='header'>
       <div className='header-upper'>
@@ -22,9 +22,9 @@ const Header = () => {
               <input type='text' id='search' placeholder='어떤 콘텐츠가 궁금하신가요?' />
             </div>
             <div className='user-box'>
-              {currentUser && <span className='user-name'>{currentUser.username}</span>}
-              {currentUser ? (
-                <button className='logout-button' onClick={handleLogOut}>
+              {auth && <span className='user-name'>{auth.user}</span>}
+              {auth ? (
+                <button className='logout-button' onClick={() => console.log('handle logout')}>
                   로그아웃
                 </button>
               ) : (

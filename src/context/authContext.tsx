@@ -1,3 +1,4 @@
+/*
 import { createContext, ReactNode, useEffect, useState } from 'react';
 import { login, logout } from '@/api/auth';
 import { User, UserContext, UserState } from '@/common/types';
@@ -55,3 +56,4 @@ export const AuthContextProvider = ({ children }: { children: ReactNode }) => {
     </AuthContext.Provider>
   );
 };
+*/
