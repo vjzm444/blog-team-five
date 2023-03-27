@@ -3,15 +3,13 @@ import React, { createContext, ReactNode, useState } from 'react';
 type AuthState = {
   user?: string;
   pwd?: string;
-  roles?: string;
-  accessToken?: string;
+  roles?: any;
+  accessToken?: any;
 };
 
 type AuthContextProps = {
   auth: AuthState | null;
-  setAuth:
-    | React.Dispatch<React.SetStateAction<AuthState>>
-    | React.Dispatch<React.SetStateAction<null>>;
+  setAuth: React.Dispatch<React.SetStateAction<AuthState | null>>;
 };
 
 const AuthContext = createContext<AuthContextProps>({
@@ -21,7 +19,7 @@ const AuthContext = createContext<AuthContextProps>({
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }): JSX.Element => {
-  const [auth, setAuth] = useState(null);
+  const [auth, setAuth] = useState<AuthState | null>(null);
 
   return <AuthContext.Provider value={{ auth, setAuth }}>{children}</AuthContext.Provider>;
 };

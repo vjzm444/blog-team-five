@@ -1,5 +1,5 @@
 import './auth.scss';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AuthInput from '@/components/AuthInput';
 // import { AuthContext } from '@/context/authContext';
@@ -57,6 +57,7 @@ const LoginPage = () => {
       setPassword('');
       navigate('/');
     } catch (err) {
+      setError(error);
       console.log(error);
       /*유저 데이터와 비밀번호 둘 중 하나라도 잘못된 정보일 경우 서버에서
        * 그에 맞는 에러를 반환해주면 (ex.401) 해당 에러를 가지고 setError()에
