@@ -6,21 +6,19 @@ import { AuthContext } from '@/context/authContext';
 import { useNavigate } from 'react-router';
 
 const LoginPage = () => {
-  const [inputs, setInputs] = useState({
-    username: '',
-    password: '',
-  });
+  const [userId, setUserId] = useState('');
+  const [userFocus, setUserFocus] = useState(false);
+  const [password, setPassword] = useState('');
+  const [pwdFocus, setPwdFocus] = useState(false);
+
   const { handleLogIn } = useContext(AuthContext);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-  };
 
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log(inputs);
-    const res = await handleLogIn(inputs);
+    // console.log(inputs);
+    const res = await handleLogIn({ username: userId, password });
 
     console.log(res);
     if (!res) {
@@ -55,30 +53,38 @@ const LoginPage = () => {
             />
           </div>
         </div>
-        <div className='input-section'>
+        <section className='input-section'>
           <div className='input-section-wrapper'>
             <div className='title-header mb32'>로그인</div>
             <form>
               <div className='input-box'>
                 <AuthInput
-                  title={'아이디'}
+                  title='아이디'
+                  id='username'
                   maxLength={100}
-                  name={'username'}
-                  placeholder={'ID@example.com'}
-                  type={'text'}
-                  onChangeFunc={handleChange}
+                  name='username'
+                  placeholder='ID@example.com'
+                  type='text'
+                  value={userId}
+                  onChangeFunc={(e) => setUserId(e.target.value)}
+                  onFocusFunc={() => setUserFocus(true)}
+                  onBlurFunc={() => setUserFocus(false)}
                 />
                 {/*<span className='error-text'>에러상세 메시지</span>*/}
                 {/*<span className='error-text-custom'>아이디 또는 이메일을 입력해주세요.</span>*/}
               </div>
               <div className='input-box'>
                 <AuthInput
-                  title={'비밀번호'}
+                  title='비밀번호'
+                  id='password'
                   maxLength={32}
-                  name={'password'}
+                  name='password'
                   placeholder={'비밀번호를 입력해 주세요.'}
-                  type={'password'}
-                  onChangeFunc={handleChange}
+                  type='password'
+                  value={password}
+                  onChangeFunc={(e) => setPassword(e.target.value)}
+                  onFocusFunc={() => setPwdFocus(true)}
+                  onBlurFunc={() => setPwdFocus(false)}
                 />
                 {/*<span className='error-text'>에러상세 메시지</span>*/}
                 {/*<span className='error-text-custom'>비밀번호를 입력해 주세요.</span>*/}
@@ -121,7 +127,7 @@ const LoginPage = () => {
               </div>
             </form>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );

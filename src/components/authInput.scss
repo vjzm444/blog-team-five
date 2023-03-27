@@ -1,6 +1,5 @@
 .title {
   color: #212121;
-  margin-bottom: 16px;
   font-weight: 500;
   font-size: 16px;
   line-height: 26px;
@@ -8,8 +7,9 @@
 
 .default-input {
   position: relative;
+  margin-top: 8px;
 
-  input {
+  .wishket-text {
     display: block;
     border-radius: 4px;
     padding: 8px 12px 8px 12px;
@@ -21,9 +21,40 @@
     background: #fff;
     width: 100%;
     height: inherit;
+    outline: none; // focus-visible 변경안되는 원인
 
     &:hover, &:focus {
       border-color: #3ba3c7;
     }
   }
+
+  & + .error {
+    margin-top: 0;
+
+    .wishket-text {
+      border-color: #e52929;
+      color: #e52929;
+
+      &:hover {
+        border-color: #e52929;
+      }
+
+      &:focus {
+        border-color: #3ba3c7;
+        color: #616161;
+      }
+    }
+  }
+}
+
+.offscreen {
+  display: none;
+}
+
+.instructions {
+  display: block;
+  padding: 8px 12px 0 12px;
+  color: #e52929;
+  font-size: 13px;
+  font-weight: 400;
 }

@@ -3,6 +3,7 @@ import { CreatePost, EditPost, HotPost, Post } from '@/common/types';
 
 export const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 export const API_TEST_URL = import.meta.env.VITE_APP_TEST_URL;
+export const APP_TEST2_URL = import.meta.env.VITE_APP_TEST_URL;
 
 export const getHotPosts = async (): Promise<HotPost[] | null> => {
   try {
