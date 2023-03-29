@@ -3,9 +3,16 @@ import './header.scss';
 import Logo from '@/img/Logo.png';
 import { FiSearch } from 'react-icons/fi';
 import useAuth from '@/hooks/useAuth';
+import { IoCloseOutline, IoSearch } from 'react-icons/io5';
 
 const Header = () => {
   // const { currentUser, handleLogOut } = useContext(AuthContext);
+  const openSearchModal = () => {
+    // context 전역 상태를 쓰고
+    // custom hook 생각
+    // 검색바 눌렀을 때, 초기에 focus되도록 useRef 사용
+  };
+
   const { auth } = useAuth();
   return (
     <div className='header'>
@@ -15,11 +22,12 @@ const Header = () => {
             <Link className='navigation-logo' to='/'>
               <img src={Logo} alt='logo' />
             </Link>
-            <div className='search-bar'>
+            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+            <div className='search-box btn flex-box' onClick={openSearchModal}>
               <label htmlFor='search'>
                 <FiSearch style={{ color: '#9e9e9e', margin: '0 10px' }}></FiSearch>
               </label>
-              <input type='text' id='search' placeholder='어떤 콘텐츠가 궁금하신가요?' />
+              <p>어떤 콘텐츠가 궁금하신가요?</p>
             </div>
             <div className='user-box'>
               {auth && <span className='user-name'>{auth.user}</span>}
@@ -83,6 +91,46 @@ const Header = () => {
               <div>프로덕트</div>
             </NavLink>
           </div>
+        </div>
+      </div>
+      <div className='side-bar'></div>
+      <div className='search-modal'>
+        <div className='search-part'>
+          <div className='container'>
+            <IoSearch style={{ color: '#9e9e9e', fontSize: '21px' }}></IoSearch>
+            <input
+              className='news-search-input'
+              id='searchInput'
+              placeholder='어떤 콘텐츠가 궁금하신가요?'
+              type='text'
+            />
+            <IoCloseOutline
+              style={{ color: '#9e9e9e', fontSize: '33px', cursor: 'pointer' }}
+            ></IoCloseOutline>
+          </div>
+        </div>
+        <div className='search-sub-part'>
+          <div className='container'>
+            <div className='recent-keyword-part'>
+              <div className='title'>
+                최근검색어
+                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
+                <div
+                  className='sub-action'
+                  onClick={() => {
+                    console.log('clear keyword');
+                  }}
+                >
+                  전체 삭제
+                </div>
+              </div>
+              <div className='recent-keyword-part-wrapper empty'>
+                <div className='empty-recent-keyword'>최근 검색어가 없습니다.</div>
+                <div className='recent-keyword-list' id='recentKeywordList'></div>
+              </div>
+            </div>
+          </div>
+          <div className='background-overlay'></div>
         </div>
       </div>
     </div>
