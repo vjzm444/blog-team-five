@@ -80,4 +80,9 @@ $fontHoverColor: #212121;
       width: 100%;
     }
   }
+
+  &.search-modal-open{
+    width: 100%;
+    position: fixed;
+  }
 }

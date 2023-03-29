@@ -110,10 +110,10 @@ footer {
         .footer-company-info-sns {
           float: right;
 
-          .link{
-            &+.link{
-              img{
-                margin-left:12px;
+          .link {
+            & + .link {
+              img {
+                margin-left: 12px;
               }
             }
           }

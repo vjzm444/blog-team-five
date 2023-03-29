@@ -4,16 +4,19 @@ import Logo from '@/img/Logo.png';
 import { FiSearch } from 'react-icons/fi';
 import useAuth from '@/hooks/useAuth';
 import { IoCloseOutline, IoSearch } from 'react-icons/io5';
+import useSearchModal from '@/hooks/useSearchModal';
 
 const Header = () => {
   // const { currentUser, handleLogOut } = useContext(AuthContext);
+  const { auth } = useAuth();
+  const { open, setOpen } = useSearchModal();
+
   const openSearchModal = () => {
+    setOpen((prev) => !prev);
     // context 전역 상태를 쓰고
     // custom hook 생각
     // 검색바 눌렀을 때, 초기에 focus되도록 useRef 사용
   };
-
-  const { auth } = useAuth();
   return (
     <div className='header'>
       <div className='header-upper'>
@@ -94,7 +97,7 @@ const Header = () => {
         </div>
       </div>
       <div className='side-bar'></div>
-      <div className='search-modal'>
+      <div className={open ? 'search-modal active' : 'search-modal'}>
         <div className='search-part'>
           <div className='container'>
             <IoSearch style={{ color: '#9e9e9e', fontSize: '21px' }}></IoSearch>
@@ -105,6 +108,7 @@ const Header = () => {
               type='text'
             />
             <IoCloseOutline
+              onClick={() => setOpen((prev) => !prev)}
               style={{ color: '#9e9e9e', fontSize: '33px', cursor: 'pointer' }}
             ></IoCloseOutline>
           </div>
@@ -115,12 +119,7 @@ const Header = () => {
               <div className='title'>
                 최근검색어
                 {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                <div
-                  className='sub-action'
-                  onClick={() => {
-                    console.log('clear keyword');
-                  }}
-                >
+                <div className='sub-action' onClick={() => console.log('전체삭제')}>
                   전체 삭제
                 </div>
               </div>

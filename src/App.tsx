@@ -10,6 +10,7 @@ import Detail from '@/pages/detail/Detail';
 import Write from '@/pages/write/Write';
 import Category from '@/pages/category/Category';
 import Search from '@/pages/search/Search';
+import useSearchModal from '@/hooks/useSearchModal';
 
 const Layout = () => {
   return (
@@ -62,8 +63,9 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  const { open } = useSearchModal();
   return (
-    <div className='app'>
+    <div className={open ? 'app search-modal-open' : 'app'}>
       <RouterProvider router={router} />
     </div>
   );
