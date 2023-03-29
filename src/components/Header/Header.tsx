@@ -3,13 +3,13 @@ import './header.scss';
 import Logo from '@/img/Logo.png';
 import { FiSearch } from 'react-icons/fi';
 import useAuth from '@/hooks/useAuth';
-import { IoCloseOutline, IoSearch } from 'react-icons/io5';
 import useSearchModal from '@/hooks/useSearchModal';
+import SearchModal from '@/components/SearchModal/SearchModal';
 
 const Header = () => {
   // const { currentUser, handleLogOut } = useContext(AuthContext);
   const { auth } = useAuth();
-  const { open, setOpen } = useSearchModal();
+  const { setOpen } = useSearchModal();
 
   const openSearchModal = () => {
     setOpen((prev) => !prev);
@@ -97,41 +97,7 @@ const Header = () => {
         </div>
       </div>
       <div className='side-bar'></div>
-      <div className={open ? 'search-modal active' : 'search-modal'}>
-        <div className='search-part'>
-          <div className='container'>
-            <IoSearch style={{ color: '#9e9e9e', fontSize: '21px' }}></IoSearch>
-            <input
-              className='news-search-input'
-              id='searchInput'
-              placeholder='어떤 콘텐츠가 궁금하신가요?'
-              type='text'
-            />
-            <IoCloseOutline
-              onClick={() => setOpen((prev) => !prev)}
-              style={{ color: '#9e9e9e', fontSize: '33px', cursor: 'pointer' }}
-            ></IoCloseOutline>
-          </div>
-        </div>
-        <div className='search-sub-part'>
-          <div className='container'>
-            <div className='recent-keyword-part'>
-              <div className='title'>
-                최근검색어
-                {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-                <div className='sub-action' onClick={() => console.log('전체삭제')}>
-                  전체 삭제
-                </div>
-              </div>
-              <div className='recent-keyword-part-wrapper empty'>
-                <div className='empty-recent-keyword'>최근 검색어가 없습니다.</div>
-                <div className='recent-keyword-list' id='recentKeywordList'></div>
-              </div>
-            </div>
-          </div>
-          <div className='background-overlay'></div>
-        </div>
-      </div>
+      <SearchModal />
     </div>
   );
 };

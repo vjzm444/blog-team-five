@@ -1,0 +1,91 @@
+.search-modal {
+  display: none;
+}
+.search-modal.active {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 2;
+}
+.search-modal.active .search-part {
+  border-bottom: 1px solid #e0e0e0;
+}
+.search-modal.active .search-part .container {
+  display: flex;
+  align-items: center;
+}
+.search-modal.active .search-part .container .news-search-input {
+  width: 100%;
+  margin: 0 12px;
+  border: none;
+  font-size: 16px;
+  padding: 20px 0 19px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  color: #616161;
+  outline: none;
+}
+.search-modal.active .search-part .container .news-search-input::placeholder {
+  color: rgba(97, 97, 97, 0.4);
+}
+.search-modal.active .search-sub-part {
+  position: relative;
+  z-index: 2;
+  padding: 32px 0 60px;
+}
+.search-modal.active .search-sub-part .recent-keyword-part .title {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.63;
+  letter-spacing: normal;
+  color: #212121;
+}
+.search-modal.active .search-sub-part .recent-keyword-part .title .sub-action {
+  display: none;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  color: #9e9e9e;
+  margin-left: auto;
+  cursor: pointer;
+}
+.search-modal.active .search-sub-part .recent-keyword-part .recent-keyword-part-wrapper.empty {
+  margin-top: 48px;
+}
+.search-modal.active .search-sub-part .recent-keyword-part .recent-keyword-part-wrapper.empty .empty-recent-keyword {
+  display: block;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  text-align: center;
+  color: #9e9e9e;
+}
+.search-modal.active .background-overlay {
+  z-index: 1;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 268px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/*# sourceMappingURL=search.css.map */
