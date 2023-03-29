@@ -1,30 +1,29 @@
-import React, { useEffect, useState } from 'react';
 import './category.scss';
 import { Link } from 'react-router-dom';
-import MetaContent from '@/components/MetaContent';
+import MetaContent from '@/components/MetaContent/MetaContent';
 import { useParams } from 'react-router';
 import { getCategoryCover, getCategoryCoverSrcSet } from '@/common/covers';
-import { Post } from '@/common/types';
 import { getCategoryPosts } from '@/api/post';
+import useFetch from '@/hooks/useFetch';
+import { Post } from '@/common/types';
 
-const CategoryPage = () => {
-  const { id: categoryType } = useParams();
-  const [posts, setPosts] = useState<Post[] | null>(null);
+const Category = () => {
+  const { id: categoryType } = useParams(); // categoryType
+  const { data: posts, error, loading } = useFetch<Post[]>(categoryType, getCategoryPosts);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (categoryType) {
-        const res = await getCategoryPosts(categoryType);
-        setPosts(res);
-      }
-    };
-
-    fetchData();
-  }, [categoryType]); // posts가 필요한가? > 어차피 다시 불러오는데?
+  if (loading) return <div>로딩중..</div>;
 
   if (!posts) {
-    return <div>Loading...</div>;
+    return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
   }
+  // 서번단에서 error 객체 얻기 위해 요청
+  if (error)
+    return (
+      <div>
+        에러가 발생했습니다.
+        <br /> 에러내용: {error}
+      </div>
+    );
 
   return (
     <>
@@ -67,4 +66,4 @@ const CategoryPage = () => {
   );
 };
 
-export default CategoryPage;
+export default Category;

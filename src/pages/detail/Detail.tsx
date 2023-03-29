@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
 import './detail.scss';
 import { deletePost, getPost } from '@/api/post';
 import { Post } from '@/common/types';
-import MetaContent from '@/components/MetaContent';
+import MetaContent from '@/components/MetaContent/MetaContent';
 import { Link } from 'react-router-dom';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/all';
 import { getCatName, sanitizeHTML } from '@/common/refactor';
+import useFetch from '@/hooks/useFetch';
 
 /*
  * 1. postId에 맞는 포스트 정보를 가져오고 포스트가 가진 카테고리 정보를 이용해 navbar에 표시를 해준다.
  * 2. 좋아요 / 댓글 기능을 추가해준다
  * 3. 같은 분야의 다른 글을 추천해 줄 수 있도록 포스트 추천(하단)
  * */
-const DetailPage = () => {
+const Detail = () => {
   const { id: postId } = useParams();
   const navigate = useNavigate();
-  const [post, setPost] = useState<Post | null>(null);
-  // const { currentUser } = useContext(AuthContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (postId) {
-        const res = await getPost(postId);
-        setPost(res);
-      }
-    };
+  const { data: post, error, loading } = useFetch<Post>(postId, getPost);
 
-    fetchData();
-    console.log(postId);
-  }, [postId]);
+  if (loading) return <div>로딩중..</div>;
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
   }
+  // 서번단에서 error 객체 얻기 위해 요청
+  if (error)
+    return (
+      <div>
+        에러가 발생했습니다.
+        <br /> 에러내용: {error}
+      </div>
+    );
 
   return (
     <>
@@ -73,17 +71,17 @@ const DetailPage = () => {
               style={{ textAlign: 'justify' }}
               dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }}
             ></p>
-            <p style={{ textAlign: 'justify' }}>&nbsp;</p>
-            <h3 style={{ textAlign: 'justify' }}>
-              <strong>ChatGPT&nbsp;소개 및 사용 방법</strong>
-            </h3>
-            <h4 style={{ textAlign: 'justify' }}>
-              <strong>1) ChatGPT&nbsp;소개</strong>
-            </h4>
-            <p
-              style={{ textAlign: 'justify' }}
-              dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }}
-            ></p>
+            {/*<p style={{ textAlign: 'justify' }}>&nbsp;</p>*/}
+            {/*<h3 style={{ textAlign: 'justify' }}>*/}
+            {/*  <strong>ChatGPT&nbsp;소개 및 사용 방법</strong>*/}
+            {/*</h3>*/}
+            {/*<h4 style={{ textAlign: 'justify' }}>*/}
+            {/*  <strong>1) ChatGPT&nbsp;소개</strong>*/}
+            {/*</h4>*/}
+            {/*<p*/}
+            {/*  style={{ textAlign: 'justify' }}*/}
+            {/*  dangerouslySetInnerHTML={{ __html: sanitizeHTML(post.content) }}*/}
+            {/*></p>*/}
           </div>
         </div>
       </div>
@@ -91,4 +89,4 @@ const DetailPage = () => {
   );
 };
 
-export default DetailPage;
+export default Detail;
