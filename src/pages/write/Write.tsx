@@ -1,12 +1,12 @@
 import React, { useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
-import PostEditor from '@/components/PostEditor';
+import PostEditor from '@/components/PostEditor/PostEditor';
 import { useLocation, useNavigate } from 'react-router';
 import { Post } from '@/common/types';
 import './write.scss';
 import { createPost, sendFormData, updatePost } from '@/api/post';
 
-const WritePage = () => {
+const Write = () => {
   const quillRef = useRef<ReactQuill>();
   const state: Post | null = useLocation().state;
   const [title, setTitle] = useState(state?.title || '');
@@ -192,4 +192,4 @@ const WritePage = () => {
   );
 };
 
-export default WritePage;
+export default Write;

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Post } from '@/common/types';
 import './postcard.scss';
-import MetaContent from '@/components/MetaContent';
+import MetaContent from '@/components/MetaContent/MetaContent';
 import { customSanitizeHTML, sanitizeHTML } from '@/common/refactor';
 // postcard의 list-item-link가 왜 category의 list-item-link에서 요소를 확인할 수 있을까
 const PostCard = ({ post }: { post: Post }) => {

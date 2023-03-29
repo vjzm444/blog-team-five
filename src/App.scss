@@ -21,6 +21,10 @@ $fontHoverColor: #212121;
     align-items: center;
   }
 
+  .btn{
+    cursor: pointer;
+  }
+
   .list-text.card-title, .item-title.link-text {
     display: block;
   }

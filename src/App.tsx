@@ -1,14 +1,15 @@
 import './App.scss';
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ErrorPage from '@/pages/ErrorPage';
-import HomePage from '@/pages/HomePage';
-import RegisterPage from '@/pages/RegisterPage';
-import LoginPage from '@/pages/LoginPage';
-import DetailPage from '@/pages/DetailPage';
-import WritePage from '@/pages/WritePage';
-import CategoryPage from '@/pages/CategoryPage';
+import Header from '@/components/Header/Header';
+import Footer from '@/components/Footer/Footer';
+import Error from '@/pages/error/Error';
+import Home from '@/pages/home/Home';
+import Register from '@/pages/auth/Register';
+import Login from '@/pages/auth/Login';
+import Detail from '@/pages/detail/Detail';
+import Write from '@/pages/write/Write';
+import Category from '@/pages/category/Category';
+import Search from '@/pages/search/Search';
 
 const Layout = () => {
   return (
@@ -29,30 +30,34 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: '/detail/:id',
-        element: <DetailPage />,
+        element: <Detail />,
       },
       {
         path: '/write',
-        element: <WritePage />,
+        element: <Write />,
+      },
+      {
+        path: '/search/',
+        element: <Search />,
       },
       {
         path: '/category/:id',
-        element: <CategoryPage />,
+        element: <Category />,
       },
     ],
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
   },
   {
     path: '/register',
-    element: <RegisterPage />,
+    element: <Register />,
   },
   {
     path: '/login',
-    element: <LoginPage />,
+    element: <Login />,
   },
 ]);
 

@@ -1,16 +1,16 @@
 import './auth.scss';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import AuthInput from '@/components/AuthInput';
+import AuthInput from '@/components/AuthInput/AuthInput';
 // import { AuthContext } from '@/context/authContext';
 import { useNavigate } from 'react-router';
-import AuthLogo from '@/components/AuthLogo';
+import AuthLogo from '@/components/AuthLogo/AuthLogo';
 import axios from '@/api/axios';
 import useAuth from '@/hooks/useAuth';
 
 const LOGIN_URL = '/auth';
 
-const LoginPage = () => {
+const Login = () => {
   const [userId, setUserId] = useState('');
   // const [validId, setValidId] = useState(false);
 
@@ -152,4 +152,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;

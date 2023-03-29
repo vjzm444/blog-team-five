@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './auth.scss';
 import { Link } from 'react-router-dom';
-import AuthInput from '@/components/AuthInput';
+import AuthInput from '@/components/AuthInput/AuthInput';
 import axios from '@/api/axios';
-import AuthLogo from '@/components/AuthLogo';
+import AuthLogo from '@/components/AuthLogo/AuthLogo';
 import { useNavigate } from 'react-router';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -12,7 +12,7 @@ const USER_REGEX = /^[A-z][A-z0-9_]{5,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = '/register';
 
-const RegisterPage = () => {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [validEmail, setValidEmail] = useState(false);
 
@@ -184,4 +184,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default Register;

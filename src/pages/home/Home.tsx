@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './home.scss';
-import PostCard from '@/components/PostCard';
+import PostCard from '@/components/PostCard/PostCard';
 // import { useLocation } from 'react-router';
 import { HotPost, Post } from '@/common/types';
 import { getHotPosts } from '@/api/post';
 
-const HomePage = () => {
+const Home = () => {
   const [hotPosts, setHotPosts] = useState<HotPost[] | null>(null);
   // const category = useLocation().search; // get Query String > '?category=2'
 
@@ -54,4 +54,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

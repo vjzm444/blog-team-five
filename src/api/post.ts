@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { isAxiosError } from 'axios';
 import { CreatePost, EditPost, HotPost, Post } from '@/common/types';
 
 // export const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
@@ -19,8 +19,12 @@ export const getPost = async (id: string): Promise<Post | null> => {
   try {
     const response = await axios.get<Post>(`/api/detail/${id}`);
     return response.data;
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    if (isAxiosError(error)) {
+      throw new Error('Axios Error with Message: ' + error.message);
+    } else {
+      throw new Error(String(error));
+    }
     return null;
   }
 };
