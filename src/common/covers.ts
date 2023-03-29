@@ -16,6 +16,9 @@ export const getCategoryCover = (param: string) => {
     case 'product':
       imgSrc = 'https://yozm.wishket.com/static/renewal/img/news/bg-product.png';
       break;
+    case 'search':
+      imgSrc = 'https://yozm.wishket.com/static/renewal/img/news/bg-search.png';
+      break;
     default:
       console.log('undefined img src');
       break;
@@ -51,4 +54,49 @@ export const getCategoryCoverSrcSet = (param: string) => {
       break;
   }
   return srcSet;
+};
+
+export const getListTitle = (listType: string) => {
+  let title = '';
+  switch (listType) {
+    case 'new':
+      title = '요즘, new';
+      break;
+    case 'plan':
+      title = '요즘, ' + getTranslatedWord('plan');
+      break;
+    case 'design':
+      title = '요즘, ' + getTranslatedWord('design');
+      break;
+    case 'develop':
+      title = '요즘, ' + getTranslatedWord('develop');
+      break;
+    case 'product':
+      title = '요즘, ' + getTranslatedWord('product');
+      break;
+    default:
+      console.log('undefined title');
+  }
+  return title;
+};
+
+export const getTranslatedWord = (word: string) => {
+  let result = '';
+  switch (word) {
+    case 'plan':
+      result = '기획';
+      break;
+    case 'design':
+      result = '디자인';
+      break;
+    case 'develop':
+      result = '개발';
+      break;
+    case 'product':
+      result = '프로덕트';
+      break;
+    default:
+      console.log('undefined word');
+  }
+  return result;
 };

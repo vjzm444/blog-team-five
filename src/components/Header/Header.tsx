@@ -5,6 +5,7 @@ import { FiSearch } from 'react-icons/fi';
 import useAuth from '@/hooks/useAuth';
 import useSearchModal from '@/hooks/useSearchModal';
 import SearchModal from '@/components/SearchModal/SearchModal';
+import { getTranslatedWord } from '@/common/covers';
 
 const Header = () => {
   // const { currentUser, handleLogOut } = useContext(AuthContext);
@@ -67,7 +68,7 @@ const Header = () => {
               }
               to='/category/plan'
             >
-              <div>기획</div>
+              <div>{getTranslatedWord('plan')}</div>
             </NavLink>
             <NavLink
               className={({ isActive, isPending }) =>
@@ -75,7 +76,7 @@ const Header = () => {
               }
               to='/category/design'
             >
-              <div>디자인</div>
+              <div>{getTranslatedWord('design')}</div>
             </NavLink>
             <NavLink
               className={({ isActive, isPending }) =>
@@ -83,7 +84,7 @@ const Header = () => {
               }
               to='/category/develop'
             >
-              <div>개발</div>
+              <div>{getTranslatedWord('develop')}</div>
             </NavLink>
             <NavLink
               className={({ isActive, isPending }) =>
@@ -91,7 +92,7 @@ const Header = () => {
               }
               to='/category/product'
             >
-              <div>프로덕트</div>
+              <div>{getTranslatedWord('product')}</div>
             </NavLink>
           </div>
         </div>
