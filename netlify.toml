@@ -1,5 +1,5 @@
 [[redirects]]
 from = "/api/*"
-  to = "${VITE_APP_BASE_URL}/:splat"
+  to = "http://175.124.137.189:5555/:splat"
   status = 200
   force = true
