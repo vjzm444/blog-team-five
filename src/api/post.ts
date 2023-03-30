@@ -6,13 +6,16 @@ import { CreatePost, EditPost, HotPost, Post } from '@/common/types';
 // export const APP_TEST2_URL = import.meta.env.VITE_APP_TEST_URL;
 
 // get
-export const getHotPosts = async (): Promise<HotPost[] | null> => {
+export const getHotPosts = async (): Promise<HotPost[]> => {
   try {
     const response = await axios.get<HotPost[]>(`/api/postList`);
     return response.data;
   } catch (error) {
-    console.log(error);
-    return null;
+    if (isAxiosError(error)) {
+      throw new Error('Axios Error with Message: ' + error.message);
+    } else {
+      throw new Error(String(error));
+    }
   }
 };
 
@@ -42,16 +45,10 @@ export const getCategoryPosts = async (category: string): Promise<Post[]> => {
   }
 };
 
-// get 변경 요청
 export const getSearchedResult = async (word: string): Promise<Post[]> => {
   console.log(word);
   try {
-    // const response = await axios.get('/api/search', {
-    //   params: {
-    //     search: word,
-    //   },
-    // });
-    const response = await axios.post('/api/search', null, {
+    const response = await axios.get('/api/search', {
       params: {
         search: word,
       },
@@ -65,6 +62,7 @@ export const getSearchedResult = async (word: string): Promise<Post[]> => {
     }
   }
 };
+
 // post
 export const sendFormData = async (formData: FormData): Promise<string | null> => {
   try {
@@ -85,8 +83,11 @@ export const createPost = async (data: CreatePost) => {
       },
     });
   } catch (error) {
-    console.log(error);
-    return null;
+    if (isAxiosError(error)) {
+      throw new Error('Axios Error with Message: ' + error.message);
+    } else {
+      throw new Error(String(error));
+    }
   }
 };
 //patch
@@ -99,8 +100,11 @@ export const updatePost = async (id: number, data: EditPost) => {
       },
     });
   } catch (error) {
-    console.log(error);
-    return null;
+    if (isAxiosError(error)) {
+      throw new Error('Axios Error with Message: ' + error.message);
+    } else {
+      throw new Error(String(error));
+    }
   }
 };
 
@@ -110,8 +114,11 @@ export const deletePost = async (postId: number) => {
   try {
     await axios.delete(`/api/delete/${postId}`);
   } catch (error) {
-    console.log(error);
-    return null;
+    if (isAxiosError(error)) {
+      throw new Error('Axios Error with Message: ' + error.message);
+    } else {
+      throw new Error(String(error));
+    }
   }
 };
 // export async function createUser(user) {

@@ -61,9 +61,8 @@ const Write = () => {
       // success response 받은후 loading x > navigate
       // alert('글 생성에 성공하였습니다. 메인페이지로 이동합니다.');
       navigate('/');
-    } catch (e) {
-      alert('글 생성에 실패하였습니다. 다시 시도해주세요!');
-      console.log(e);
+    } catch (error) {
+      alert(`글 생성에 실패하였습니다.\n에러 내용: ${error}`);
     }
   };
 

@@ -11,6 +11,7 @@ import Write from '@/pages/write/Write';
 import Category from '@/pages/category/Category';
 import Search from '@/pages/search/Search';
 import useSearchModal from '@/hooks/useSearchModal';
+import NetworkError from '@/pages/NetworkError';
 
 const Layout = () => {
   return (
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
   {
     path: '/login',
     element: <Login />,
+  },
+  {
+    path: '/error',
+    element: <NetworkError />,
   },
 ]);
 

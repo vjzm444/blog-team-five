@@ -17,22 +17,27 @@ import useFetch from '@/hooks/useFetch';
 const Detail = () => {
   const { id: postId } = useParams();
   const navigate = useNavigate();
-
   const { data: post, error, loading } = useFetch<Post>(postId, getPost);
 
+  const handleDeleteBtn = async (postId: number) => {
+    try {
+      await deletePost(postId);
+      // 삭제된 데이터가 남아있다. (브라우저에서 캐시되어 있기때문? -> chatgpt에 물어보기
+      navigate('/');
+    } catch (error) {
+      alert(`글 삭제를 실패하였습니다.\n에러 내용: ${error}`);
+    }
+  };
+
   if (loading) return <div>로딩중..</div>;
+
+  if (error) {
+    navigate('/error', { state: { error: error } });
+  }
 
   if (!post) {
     return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
   }
-  // 서번단에서 error 객체 얻기 위해 요청
-  if (error)
-    return (
-      <div>
-        에러가 발생했습니다.
-        <br /> 에러내용: {error}
-      </div>
-    );
 
   return (
     <>
@@ -45,15 +50,7 @@ const Detail = () => {
                 <Link className='link edit-button' to={`/write?edit=${post.id}`} state={post}>
                   <BiEditAlt size='24' color='#767676' />
                 </Link>
-                <button
-                  className='delete-button'
-                  onClick={(_) => {
-                    deletePost(post.id);
-                    console.log('delete success');
-                    // 삭제된 데이터가 남아있다. (브라우저에서 캐시되어 있기때문? -> chatgpt에 물어보기
-                    navigate('/');
-                  }}
-                >
+                <button className='delete-button' onClick={() => handleDeleteBtn(post.id)}>
                   <AiOutlineDelete size='24' color='#767676' />
                 </button>
               </div>

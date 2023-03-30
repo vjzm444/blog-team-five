@@ -4,23 +4,43 @@ import PostCard from '@/components/PostCard/PostCard';
 // import { useLocation } from 'react-router';
 import { HotPost, Post } from '@/common/types';
 import { getHotPosts } from '@/api/post';
+import { useNavigate } from 'react-router';
 
 const Home = () => {
   const [hotPosts, setHotPosts] = useState<HotPost[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   // const category = useLocation().search; // get Query String > '?category=2'
-
+  const navigate = useNavigate();
+  // 리팩토링(custom hook) 고민해보기
   useEffect(() => {
     const fetchData = async () => {
-      const res = await getHotPosts();
-      setHotPosts(res);
+      try {
+        const res = await getHotPosts();
+        setHotPosts(res);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('Unknown error occurred');
+        }
+        setLoading(false);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchData();
-    // console.log(category);
-    // 결국 catrgory를 의존성배열에서 없애니 해결 > category의 변경이 있을시 렌더링되기때문! (렌더링 초기시 x > 원할경우 빈배열)
-  }, []); // , commit 잊지말기 , hotPosts 추가시 무한루프
+  }, []);
+
+  if (loading) return <div>로딩중..</div>;
+
+  if (error) {
+    navigate('/error', { state: { error: error } });
+  }
+
   if (!hotPosts) {
-    return <div>Loading...</div>;
+    return <div>게시글을 찾지 못했습니다...{error}</div>;
   }
   return (
     <>

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { getCategoryPosts } from '@/api/post';
 import useFetch from '@/hooks/useFetch';
 import { Post } from '@/common/types';
@@ -9,17 +9,13 @@ import './category.scss';
 const Category = () => {
   const { id: categoryType } = useParams(); // categoryType
   const { data: posts, error, loading } = useFetch<Post[]>(categoryType, getCategoryPosts);
+  const navigate = useNavigate();
 
   if (loading) return <div>로딩중..</div>;
 
-  // 서번단에서 error 객체 얻기 위해 요청
-  if (error)
-    return (
-      <div>
-        에러가 발생했습니다.
-        <br /> 에러내용: {error}
-      </div>
-    );
+  if (error) {
+    navigate('/error', { state: { error: error } });
+  }
 
   if (!posts) {
     return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
