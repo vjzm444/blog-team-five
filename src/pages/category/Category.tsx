@@ -4,6 +4,7 @@ import useFetch from '@/hooks/useFetch';
 import { Post } from '@/common/types';
 import KeyCover from '@/components/List/KeyCover';
 import ListItem from '@/components/List/ListItem';
+import './category.scss';
 
 const Category = () => {
   const { id: categoryType } = useParams(); // categoryType
@@ -11,9 +12,6 @@ const Category = () => {
 
   if (loading) return <div>로딩중..</div>;
 
-  if (!posts) {
-    return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
-  }
   // 서번단에서 error 객체 얻기 위해 요청
   if (error)
     return (
@@ -22,6 +20,10 @@ const Category = () => {
         <br /> 에러내용: {error}
       </div>
     );
+
+  if (!posts) {
+    return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
+  }
 
   return (
     <>
