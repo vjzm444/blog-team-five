@@ -9,6 +9,12 @@
     align-items: center;
     background-color: #fff;
 
+    @media (max-width: 728px) {
+      .container {
+        padding: 0 12px;
+      }
+    }
+
     .header-upper-wrapper {
       height: 72px;
       display: flex;
@@ -81,6 +87,10 @@
     .container {
       overflow-x: auto;
       white-space: nowrap;
+
+      @media (max-width: 728px) {
+        padding: 0 12px;
+      }
 
       .links {
         display: flex;

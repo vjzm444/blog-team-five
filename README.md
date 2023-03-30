@@ -21,4 +21,6 @@
 - 주제 변경 고려
 - chat gpt 사진 이미지 추천 기능 고려
 - mit lisence 적용
-- 
+- local storage 사용하기 -> searchModal에 적용
+- netlify env 전역변수 front에서 사용한 것을 참조하기 (vite에...)
+- footer 반응형 디자인

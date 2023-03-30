@@ -24,6 +24,30 @@ const ListItem = ({ post }: { post: Post }) => {
             </Link>
           </div>
         </div>
+        <div className='flex-box author-box'>
+          <div className='author-info flex-box'>
+            <img
+              className='author-image'
+              src='https://yozm.wishket.com/media/news/author/%ED%85%8C%EC%98%A4%EC%9D%98%20%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C.jpg'
+              alt=''
+            />
+            <p className='author-name'>테크유람</p>
+          </div>
+          <div className='btn-wrapper'>
+            <button className='btn-action btn-icon-edit-scrap' type='button'>
+              <p className='action-tooltip bottom-action caption-2 edit-scrap-off'>스크랩</p>
+              <div className='edit-scrap-off'>
+                <img
+                  src='https://yozm.wishket.com/static/renewal/img/news/icon_toolbar_scrap_off.png'
+                  srcSet='https://yozm.wishket.com/static/renewal/img/news/icon_toolbar_scrap_off.png 1x,
+                  https://yozm.wishket.com/static/renewal/img/news/icon_toolbar_scrap_off@2x.png 2x,
+                  https://yozm.wishket.com/static/renewal/img/news/icon_toolbar_scrap_off@3x.png 3x'
+                  alt=''
+                />
+              </div>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

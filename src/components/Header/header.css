@@ -36,12 +36,12 @@
 }
 @media (min-width: 729px) {
   .app .layout {
-    min-height: unset;
+    min-height: 960px;
   }
 }
-@media (min-width: 729px) {
+@media (max-width: 728px) {
   .app .layout {
-    min-height: 960px;
+    min-height: 480px;
   }
 }
 .app .container {
@@ -67,6 +67,11 @@
   height: 72px;
   align-items: center;
   background-color: #fff;
+}
+@media (max-width: 728px) {
+  .header .header-upper .container {
+    padding: 0 12px;
+  }
 }
 .header .header-upper .header-upper-wrapper {
   height: 72px;
@@ -129,6 +134,11 @@
 .header .navbar .container {
   overflow-x: auto;
   white-space: nowrap;
+}
+@media (max-width: 728px) {
+  .header .navbar .container {
+    padding: 0 12px;
+  }
 }
 .header .navbar .container .links {
   display: flex;

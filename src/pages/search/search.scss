@@ -1,4 +1,12 @@
-@import '@/pages/category/category.scss';
+@import '../category/category.scss';
+
+.list-cover{
+  @media (max-width: 728px){
+    margin-top: 15px;
+    padding: 0 24px;
+    width: 100%;
+  }
+}
 
 .search-result-empty-box{
   padding-top: 60px;

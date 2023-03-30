@@ -27,10 +27,6 @@ const Search = () => {
     return <div>게시글을 찾지 못해습니다. 다시 시도해주세요</div>;
   }
 
-  if (!posts) {
-    return <div>게시글을 찾지 못해습니다. 다시 시도해주세요.</div>;
-  }
-
   return (
     <>
       <KeyCover listType='search' word={q} wordLen={posts.length} />

@@ -4,6 +4,10 @@
   .list-key-visual-image {
     width: 100%;
     object-fit: cover;
+
+    @media (max-width: 728px){
+      height: 180px;
+    }
   }
 
   .list-key-visual-title {
@@ -18,11 +22,5 @@
     text-align: center;
     color: #14171f;
     top: 75px;
-  }
-
-  @media (max-width: 728px){
-    .list-key-visual-image{
-      height: 80px;
-    }
   }
 }
