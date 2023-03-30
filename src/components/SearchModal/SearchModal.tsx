@@ -70,8 +70,8 @@ const SearchModal = () => {
             </div>
           </div>
         </div>
-        <div className='background-overlay'></div>
       </div>
+      <div className='background-overlay'></div>
     </div>
   );
 };
