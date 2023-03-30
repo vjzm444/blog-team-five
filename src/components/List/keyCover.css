@@ -18,5 +18,10 @@
   color: #14171f;
   top: 75px;
 }
+@media (max-width: 728px) {
+  .list-key-visual .list-key-visual-image {
+    height: 80px;
+  }
+}
 
 /*# sourceMappingURL=keyCover.css.map */

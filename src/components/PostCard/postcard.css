@@ -1,11 +1,20 @@
-.list-item-link {
-  display: inline-block;
-  vertical-align: top;
-  position: relative;
-  width: 320px;
+@media (min-width: 729px) {
+  .list-item-link {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 320px;
+  }
+  .list-item-link + .list-item-link {
+    margin-left: 60px;
+  }
 }
-.list-item-link + .list-item-link {
-  margin-left: 60px;
+@media (max-width: 728px) {
+  .list-item-link {
+    display: block;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
 }
 .list-item-link .list-item {
   width: 100%;

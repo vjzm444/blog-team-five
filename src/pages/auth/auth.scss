@@ -1,14 +1,11 @@
 .auth {
-  min-height: 100vh;
   height: 100%;
-  min-width: 1080px;
   //background-image: linear-gradient(to bottom, #f4f0ff 20%, #fefeff 60%, #ffffff 80%);
   background-color: #ffffff;
 
   .auth-wrapper {
     display: flex;
     //height: 100%; <- 적용안 됨...하
-    min-height: 100vh;
     height: 100%;
 
     .title-header {

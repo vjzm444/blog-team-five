@@ -1,10 +1,12 @@
+// home에 있는 list-item-link와 구별해주기 위해 외부에 감싸준다.
 .list-cover {
   .list-item-link {
     width: 100%;
 
-    &+.list-item-link{
+    & + .list-item-link {
       margin-left: 0;
     }
+
     .list-item {
       width: 100%;
       border-bottom: 1px solid #eee;
@@ -27,44 +29,43 @@
         }
       }
     }
-  }
-}
 
-@media (min-width: 729px) {
-  .list-cover {
-    width: 704px;
-    margin: 0 auto;
+    &:last-child>.list-item{
+      border-bottom: none;
+    }
 
-    .list-item-link {
-      display: inline-block;
+    @media (min-width: 729px) {
+      & {
+        display: inline-block;
 
-      .list-item {
-        padding-bottom: 32px;
-        margin-bottom: 32px;
+        .list-item {
+          padding-bottom: 32px;
+          margin-bottom: 32px;
 
-        .item-main {
-          width: 546px;
-          margin-right: 48px;
+          .item-main {
+            width: 546px;
+            margin-right: 48px;
 
-          .item-title {
-            font-size: 20px;
-            margin-bottom: 8px;
-            font-weight: 500;
-            line-height: 1.5;
+            .item-title {
+              font-size: 20px;
+              margin-bottom: 8px;
+              font-weight: 500;
+              line-height: 1.5;
+            }
+
+            .item-description {
+              margin: 12px 0 8px 0;
+            }
           }
 
-          .item-description {
-            margin: 12px 0 8px 0;
-          }
-        }
-
-        .item-thumbnail-pc {
-          .thumbnail-image {
-            width: 110px;
-            height: 110px;
-            border-radius: 8px;
-            border: solid 1px #e0e0e0;
-            object-fit: cover;
+          .item-thumbnail-pc {
+            .thumbnail-image {
+              width: 110px;
+              height: 110px;
+              border-radius: 8px;
+              border: solid 1px #e0e0e0;
+              object-fit: cover;
+            }
           }
         }
       }

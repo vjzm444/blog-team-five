@@ -61,20 +61,14 @@
 }
 
 .container {
-  .main-list { // 반응형을 위한 wrapper
+  .main-list {
 
-    @media (max-width: 728px) {
-
-    
-    }
     .main-list-title {
       font-size: 22px;
       font-weight: 500;
       line-height: 32px;
       color: #14171f;
       margin-bottom: 0;
-      display: flex;
-      align-items: center;
 
       img {
         margin-left: 5px;
@@ -89,6 +83,23 @@
       //justify-content: space-between;
       // @media (max-width: 729px) flex말고 기존처럼 margin-bottom으로 변경해도 무방
 
+    }
+
+
+    @media (max-width: 728px) {
+      &:last-of-type{
+        margin-bottom: 80px;
+      }
+      padding: 0 24px;
+
+      .main-list-title{
+        margin-bottom: 48px;
+      }
+
+      .main-list-row{
+        border-bottom: none;
+        padding: 0;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 import { IoCloseOutline, IoSearch } from 'react-icons/io5';
 import useSearchModal from '@/hooks/useSearchModal';
-import './search.scss';
+import './searchModal.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 

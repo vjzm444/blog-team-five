@@ -37,7 +37,7 @@ const Home = () => {
 
       <div className='container'>
         <div className='main-list'>
-          <div className='main-list-title'>
+          <div className='main-list-title flex-box'>
             요즘 인기 있는 IT 이야기
             <img src='https://yozm.wishket.com/static/renewal/img/news/icon-thumbs.png' alt='img' />
           </div>

@@ -5,3 +5,20 @@
     - react
     - ts
     - vite
+
+# Todo
+- loading 로직 구성하기
+  - 원인: 기존에 loading이 없어 게시글을 서버에서 가져올 때, '게시글을 찾지 못해습니다. 다시 시도해주세요.'문장을 보여준다.
+  - 고민: useFetch로 가져오기
+- 페이징 구현 작업
+- 서버에서 디테일 / 카테고리 / 전체목록 / 검색 api 에러코드 작업완료되는 즉시
+  - 에러 테스트
+- 로딩 ux 구현
+- 모바일 환경 작업
+- 광고 삽입
+- google analysis 적용
+- sanity.io (Anything content)
+- 주제 변경 고려
+- chat gpt 사진 이미지 추천 기능 고려
+- mit lisence 적용
+- 
