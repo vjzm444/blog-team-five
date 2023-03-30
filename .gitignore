@@ -13,6 +13,10 @@ dist
 dist-ssr
 *.local
 
+tsconfig.node.json
+tsconfig.tsbuildinfo
+yarn.lock
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
