@@ -11,7 +11,7 @@ import Write from '@/pages/write/Write';
 import Category from '@/pages/category/Category';
 import Search from '@/pages/search/Search';
 import useSearchModal from '@/hooks/useSearchModal';
-import NetworkError from '@/pages/NetworkError';
+import NetworkError from '@/pages/error/NetworkError';
 
 const Layout = () => {
   return (
