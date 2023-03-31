@@ -16,6 +16,7 @@ dist-ssr
 tsconfig.node.json
 tsconfig.tsbuildinfo
 yarn.lock
+vite.config.ts.timestamp-1679834057651.mjs
 
 # Editor directories and files
 .vscode/*
