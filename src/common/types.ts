@@ -3,6 +3,11 @@ export interface HotPost {
   hot: Post[];
 }
 
+export interface PostList {
+  allCnt: number;
+  dataList: Post[];
+}
+
 export interface Post {
   id: number;
   uid: number;
