@@ -85,8 +85,8 @@
   height: 64px;
 }
 .header .header-upper .header-upper-wrapper .navigation-logo img {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  object-fit: cover;
 }
 @media (min-width: 729px) {
   .header .header-upper .header-upper-wrapper .search-box {
@@ -101,6 +101,11 @@
     gap: 6px;
   }
 }
+@media (max-width: 728px) {
+  .header .header-upper .header-upper-wrapper .search-box {
+    display: none;
+  }
+}
 .header .header-upper .header-upper-wrapper .search-box p {
   color: #9e9e9e;
   font-size: 14px;
@@ -112,12 +117,34 @@
   align-items: center;
   margin-left: auto;
 }
+.header .header-upper .header-upper-wrapper .user-box .search-mobile-btn {
+  border: none;
+  outline: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+}
+.header .header-upper .header-upper-wrapper .user-box .search-mobile-btn .search-icon {
+  color: #9e9e9e;
+  font-size: 23px;
+}
+@media (max-width: 728px) {
+  .header .header-upper .header-upper-wrapper .user-box .search-mobile-btn {
+    cursor: pointer;
+    margin-right: 12px;
+  }
+}
+@media (min-width: 729px) {
+  .header .header-upper .header-upper-wrapper .user-box .search-mobile-btn {
+    display: none;
+  }
+}
 .header .header-upper .header-upper-wrapper .user-box .logout-button {
   border: none;
   background-color: transparent;
 }
 .header .header-upper .header-upper-wrapper .user-box .link, .header .header-upper .header-upper-wrapper .user-box .logout-button, .header .header-upper .header-upper-wrapper .user-box .user-name {
-  margin-right: 14.4px;
+  margin-right: 12px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 550;

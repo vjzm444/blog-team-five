@@ -34,6 +34,9 @@ const Header = () => {
               <p>어떤 콘텐츠가 궁금하신가요?</p>
             </div>
             <div className='user-box'>
+              <button className='search-mobile-btn' onClick={openSearchModal}>
+                <FiSearch className='search-icon'></FiSearch>
+              </button>
               {auth && <span className='user-name'>{auth.user}</span>}
               {auth ? (
                 <button className='logout-button' onClick={() => console.log('handle logout')}>
