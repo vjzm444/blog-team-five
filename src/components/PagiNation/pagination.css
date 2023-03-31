@@ -1,0 +1,35 @@
+.pagination {
+  display: block;
+  text-align: center;
+  list-style: none;
+  line-height: 80px;
+}
+.pagination .page-item {
+  display: inline-block;
+  cursor: pointer;
+  height: 100%;
+  margin-left: 4px;
+}
+.pagination .page-item:first-child {
+  margin-left: 0;
+}
+.pagination .page-item .link {
+  color: #bdbdbd;
+  font-size: 14px;
+  padding: 0 8px;
+  line-height: 30px;
+  min-width: 32px;
+  font-weight: 500;
+  border: 1px solid rgba(0, 0, 0, 0);
+  display: block;
+}
+.pagination .page-item .link.active {
+  color: #4a00e0;
+  border-color: #bdbdbd;
+  border-radius: 2px;
+}
+.pagination .page-item .link:hover {
+  color: #4a00e0;
+}
+
+/*# sourceMappingURL=pagination.css.map */

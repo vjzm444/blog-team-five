@@ -1,5 +1,5 @@
 import axios, { isAxiosError } from 'axios';
-import { CreatePost, EditPost, HotPost, Post } from '@/common/types';
+import { CreatePost, EditPost, HotPost, Post, PostList } from '@/common/types';
 
 // export const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 // export const API_TEST_URL = import.meta.env.VITE_APP_TEST_URL;
@@ -32,12 +32,14 @@ export const getPost = async (id: string): Promise<Post> => {
   }
 };
 
-export const getCategoryPosts = async (category: string): Promise<Post[]> => {
+export const getCategoryPosts = async (category: string, pageNum = 0): Promise<PostList> => {
   try {
-    //PostList[]
-    const response = await axios.get(`/api/categoryDataSelect/${category}`);
-    //Post[]
-    return response.data.dataList;
+    const response = await axios.get(`/api/categoryDataSelect/${category}`, {
+      params: {
+        nextPage: pageNum,
+      },
+    });
+    return response.data;
   } catch (error) {
     if (isAxiosError(error)) {
       throw new Error('Axios Error with Message: ' + error.message);
@@ -47,16 +49,15 @@ export const getCategoryPosts = async (category: string): Promise<Post[]> => {
   }
 };
 
-export const getSearchedResult = async (word: string): Promise<Post[]> => {
+export const getSearchedResult = async (word: string, pageNum = 0): Promise<PostList> => {
   try {
-    //PostList[]
     const response = await axios.get('/api/search', {
       params: {
         keyword: word,
+        nextPage: pageNum,
       },
     });
-    //Post[]
-    return response.data.dataList;
+    return response.data;
   } catch (error) {
     if (isAxiosError(error)) {
       throw new Error('Axios Error with Message: ' + error.message);

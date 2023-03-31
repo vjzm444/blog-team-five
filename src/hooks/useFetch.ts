@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Post } from '@/common/types';
+import { Post, PostList } from '@/common/types';
 
-export const useFetch = <T extends Post[] | Post>(
+export const useFetch = <T extends Post[] | Post | PostList>(
   param: string | undefined,
   getDataFunc: (category: string) => Promise<T | null>,
 ) => {

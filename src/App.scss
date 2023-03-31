@@ -60,8 +60,8 @@ $fontHoverColor: #212121;
 
   .layout {
     @media (min-width: 729px) {
-      //min-height: unset;
-      min-height: 960px;
+      min-height: unset;
+      //min-height: 960px;
     }
 
     @media (max-width: 728px){

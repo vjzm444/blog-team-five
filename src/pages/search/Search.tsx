@@ -1,16 +1,17 @@
 import { useLocation, useNavigate } from 'react-router';
 import KeyCover from '@/components/List/KeyCover';
 import { getSearchedResult } from '@/api/post';
-import { Post } from '@/common/types';
+import { PostList } from '@/common/types';
 import ListItem from '@/components/List/ListItem';
 import useFetch from '@/hooks/useFetch';
 import './search.scss';
+import PagiNation from '@/components/PagiNation/PagiNation';
 
 // category와 중복되는 코드 -> 컴포넌트화
 const Search = () => {
   const location = useLocation();
   const { q } = location.state;
-  const { data: posts, error, loading } = useFetch<Post[]>(q, getSearchedResult);
+  const { data: posts, error, loading } = useFetch<PostList>(q, getSearchedResult);
   const navigate = useNavigate();
 
   if (loading) return <div>로딩중..</div>;
@@ -25,11 +26,11 @@ const Search = () => {
 
   return (
     <>
-      <KeyCover listType='search' word={q} wordLen={posts.length} />
+      <KeyCover listType='search' word={q} wordLen={posts.allCnt} />
       <div className='container'>
-        <div className={posts.length ? 'list-cover' : 'list-cover search-empty-cover'}>
-          {posts.length ? (
-            posts.map((post) => <ListItem key={post.id} post={post} />)
+        <div className={posts.allCnt ? 'list-cover' : 'list-cover search-empty-cover'}>
+          {posts.allCnt ? (
+            posts.dataList.map((post) => <ListItem key={post.id} post={post} />)
           ) : (
             <div className='search-result-empty-box'>
               <p className='search-result-empty-title'>`‘${q}’에 대한 검색 결과가 없습니다.`</p>
@@ -50,6 +51,7 @@ const Search = () => {
             </div>
           )}
         </div>
+        <PagiNation postLen={posts.allCnt} />
       </div>
     </>
   );
