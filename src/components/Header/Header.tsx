@@ -6,6 +6,7 @@ import useAuth from '@/hooks/useAuth';
 import useSearchModal from '@/hooks/useSearchModal';
 import SearchModal from '@/components/SearchModal/SearchModal';
 import { getTranslatedWord } from '@/common/covers';
+import SideBar from '@/components/SideBar/SideBar';
 
 const Header = () => {
   // const { currentUser, handleLogOut } = useContext(AuthContext);
@@ -116,7 +117,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className='side-bar'></div>
+      <SideBar />
       <SearchModal />
     </div>
   );
