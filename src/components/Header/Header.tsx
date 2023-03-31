@@ -7,22 +7,25 @@ import useSearchModal from '@/hooks/useSearchModal';
 import SearchModal from '@/components/SearchModal/SearchModal';
 import { getTranslatedWord } from '@/common/covers';
 import SideBar from '@/components/SideBar/SideBar';
+import { SlMenu } from 'react-icons/all';
+import useMenu from '@/hooks/useMenu';
 
 const Header = () => {
   // const { currentUser, handleLogOut } = useContext(AuthContext);
   const { auth } = useAuth();
-  const { setOpen } = useSearchModal();
+  const { setOpenModal } = useSearchModal();
+  const { setOpenMenu } = useMenu();
 
   const openSearchModal = () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (!document.startViewTransition) {
-      setOpen((prev) => !prev);
+      setOpenModal((prev) => !prev);
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return document.startViewTransition(() => {
-        setOpen((prev) => !prev);
+        setOpenModal((prev) => !prev);
       });
     }
 
@@ -30,6 +33,11 @@ const Header = () => {
     // custom hook 생각
     // 검색바 눌렀을 때, 초기에 focus되도록 useRef 사용
   };
+
+  const openMenuBar = () => {
+    setOpenMenu((prev) => !prev);
+  };
+
   return (
     <div className='header'>
       <div className='header-upper'>
@@ -67,6 +75,9 @@ const Header = () => {
                   글쓰기
                 </Link>
               </div>
+              <button className='hamburger-menu' onClick={openMenuBar}>
+                <SlMenu className='menu-icon' />
+              </button>
             </div>
           </div>
         </div>

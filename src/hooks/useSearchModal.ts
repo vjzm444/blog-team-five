@@ -2,13 +2,13 @@ import { useContext } from 'react';
 import { SearchModalDispatchContext, SearchModalStateContext } from '@/context/SearchModalProvider';
 
 const useSearchModal = () => {
-  const open = useContext(SearchModalStateContext);
-  const setOpen = useContext(SearchModalDispatchContext);
+  const openModal = useContext(SearchModalStateContext);
+  const setOpenModal = useContext(SearchModalDispatchContext);
   // useDebugValue(open, (open) => (open === null ? 'open has value' : 'open is null'));
-  if (open === null || !setOpen) {
+  if (openModal === null || !setOpenModal) {
     throw new Error('Cannot find SearchModalProvider');
   }
-  return { open, setOpen };
+  return { openModal, setOpenModal };
 };
 
 export default useSearchModal;

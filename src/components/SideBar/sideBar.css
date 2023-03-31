@@ -61,5 +61,22 @@
   background-color: #6b16ee;
   border: none;
 }
+.side-bar.active .side-menu-overlay {
+  width: calc(100% - 288px);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+.side-bar.active .side-menu-overlay button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
 
 /*# sourceMappingURL=sideBar.css.map */

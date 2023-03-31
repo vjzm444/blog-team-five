@@ -5,15 +5,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 const SearchModal = () => {
-  const { open, setOpen } = useSearchModal();
+  const { openModal, setOpenModal } = useSearchModal();
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState<string>('');
   const navigate = useNavigate();
   useEffect(() => {
-    if (open && inputRef.current) {
+    if (openModal && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [open]);
+  }, [openModal]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputVal(e.target.value);
@@ -38,12 +38,12 @@ const SearchModal = () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (!document.startViewTransition) {
-      setOpen((prev) => !prev);
+      setOpenModal((prev) => !prev);
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return document.startViewTransition(() => {
-        setOpen((prev) => !prev);
+        setOpenModal((prev) => !prev);
       });
     }
   };
@@ -51,7 +51,7 @@ const SearchModal = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const q = inputVal;
     if (e.key === 'Enter') {
-      setOpen((prev) => !prev);
+      setOpenModal((prev) => !prev);
       setInputVal('');
       viewNavigate('/search', q);
       // viewTransitionNav.ts('/search', {
@@ -63,7 +63,7 @@ const SearchModal = () => {
   };
 
   return (
-    <div className={open ? 'search-modal active' : 'search-modal'}>
+    <div className={openModal ? 'search-modal active' : 'search-modal'}>
       <div className='search-part'>
         <div className='container'>
           <IoSearch style={{ color: '#9e9e9e', fontSize: '21px' }}></IoSearch>

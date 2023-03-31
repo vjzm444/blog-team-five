@@ -4,13 +4,16 @@ import App from '@/App';
 import './main.scss';
 import { AuthProvider } from '@/context/AuthProvider';
 import { SearchModalProvider } from '@/context/SearchModalProvider';
+import { MenuProvider } from '@/context/MenuProvider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <SearchModalProvider>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
+      <MenuProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </MenuProvider>
     </SearchModalProvider>
   </React.StrictMode>,
 );

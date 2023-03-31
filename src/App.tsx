@@ -13,6 +13,7 @@ import Search from '@/pages/search/Search';
 import useSearchModal from '@/hooks/useSearchModal';
 import NetworkError from '@/pages/error/NetworkError';
 import LetterGuide from '@/components/LetterGuide/LetterGuide';
+import useMenu from '@/hooks/useMenu';
 
 const Layout = ({ isDetail }: { isDetail: boolean }) => {
   return (
@@ -76,9 +77,10 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const { open } = useSearchModal();
+  const { openModal } = useSearchModal();
+  const { openMenu } = useMenu();
   return (
-    <div className={open ? 'app search-modal-open' : 'app'}>
+    <div className={openModal || openMenu ? 'app search-modal-open' : 'app'}>
       <RouterProvider router={router} />
     </div>
   );
