@@ -13,7 +13,18 @@ const Header = () => {
   const { setOpen } = useSearchModal();
 
   const openSearchModal = () => {
-    setOpen((prev) => !prev);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (!document.startViewTransition) {
+      setOpen((prev) => !prev);
+    } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      return document.startViewTransition(() => {
+        setOpen((prev) => !prev);
+      });
+    }
+
     // context 전역 상태를 쓰고
     // custom hook 생각
     // 검색바 눌렀을 때, 초기에 focus되도록 useRef 사용
@@ -37,19 +48,24 @@ const Header = () => {
               <button className='search-mobile-btn' onClick={openSearchModal}>
                 <FiSearch className='search-icon'></FiSearch>
               </button>
-              {auth && <span className='user-name'>{auth.user}</span>}
-              {auth ? (
-                <button className='logout-button' onClick={() => console.log('handle logout')}>
-                  로그아웃
-                </button>
-              ) : (
-                <Link className='link' to='/login'>
-                  로그인
+              <div className='button-group-box'>
+                {auth && <span className='btn user-name'>{auth.user}</span>}
+                {auth ? (
+                  <button
+                    className='btn logout-button'
+                    onClick={() => console.log('handle logout')}
+                  >
+                    로그아웃
+                  </button>
+                ) : (
+                  <Link className='btn link' to='/login'>
+                    로그인
+                  </Link>
+                )}
+                <Link className='btn link' to='/write' state={null}>
+                  글쓰기
                 </Link>
-              )}
-              <Link className='link' to='/write' state={null}>
-                글쓰기
-              </Link>
+              </div>
             </div>
           </div>
         </div>

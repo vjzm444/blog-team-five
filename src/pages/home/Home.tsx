@@ -14,6 +14,7 @@ const Home = () => {
   // const category = useLocation().search; // get Query String > '?category=2'
   const navigate = useNavigate();
   // 리팩토링(custom hook) 고민해보기
+
   useEffect(() => {
     const fetchData = async () => {
       try {

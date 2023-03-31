@@ -1,6 +1,14 @@
 @import '../../App';
 //@import '@/App.scss';
 
+//::view-transition-old(root){
+//  animation-duration: 0.5s;
+//}
+
+::view-transition-new(root) {
+  animation-duration: 0.3s;
+}
+
 .header {
   .header-upper {
     display: flex;
@@ -61,7 +69,35 @@
         display: flex;
         align-items: center;
         margin-left: auto;
+        //height: 40px;
 
+        .button-group-box{
+          //height: 100%;
+          display: flex;
+          //align-items: center;
+
+          .btn{
+            width:87px;
+            height: 100%;
+            font-size: 14px;
+            color: $fontColor;
+            text-align: center;
+            padding: 4px 16px;
+            border-radius: 4px;
+            line-height: 1.71;
+
+            &:not(:first-child){
+              margin-left: 8px;
+              color: #fff;
+              background-color: #6b16ee;
+            }
+          }
+        }
+
+        .logout-button {
+          border: none;
+          background-color: transparent;
+        }
 
         .search-mobile-btn {
           border: none;
@@ -83,20 +119,6 @@
           @media(min-width: 729px) {
             display: none;
           }
-        }
-
-
-        .logout-button {
-          border: none;
-          background-color: transparent;
-        }
-
-        .link, .logout-button, .user-name {
-          margin-right: 12px;
-          cursor: pointer;
-          font-size: 14px;
-          font-weight: 550;
-          color: $fontColor;
         }
       }
     }

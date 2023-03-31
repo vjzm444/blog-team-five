@@ -7,9 +7,8 @@ import { useNavigate } from 'react-router';
 const SearchModal = () => {
   const { open, setOpen } = useSearchModal();
   const inputRef = useRef<HTMLInputElement>(null);
-  const navigate = useNavigate();
   const [inputVal, setInputVal] = useState<string>('');
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (open && inputRef.current) {
       inputRef.current.focus();
@@ -21,16 +20,45 @@ const SearchModal = () => {
     console.log(inputVal);
   };
 
+  const viewNavigate = (newRoute: string, q: string) => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (!document.startViewTransition) {
+      return navigate(newRoute, { state: { q } });
+    } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      return document.startViewTransition(() => {
+        navigate(newRoute, { state: { q } });
+      });
+    }
+  };
+
+  const handleClose = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    if (!document.startViewTransition) {
+      setOpen((prev) => !prev);
+    } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      return document.startViewTransition(() => {
+        setOpen((prev) => !prev);
+      });
+    }
+  };
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const q = inputVal;
     if (e.key === 'Enter') {
       setOpen((prev) => !prev);
       setInputVal('');
-      navigate('/search', {
-        state: {
-          q,
-        },
-      });
+      viewNavigate('/search', q);
+      // viewTransitionNav.ts('/search', {
+      //   state: {
+      //     q,
+      //   },
+      // });
     }
   };
 
@@ -49,7 +77,7 @@ const SearchModal = () => {
             onKeyDown={handleKeyDown}
           />
           <IoCloseOutline
-            onClick={() => setOpen((prev) => !prev)}
+            onClick={handleClose}
             style={{ color: '#9e9e9e', fontSize: '33px', cursor: 'pointer' }}
           ></IoCloseOutline>
         </div>
