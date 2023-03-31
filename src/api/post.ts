@@ -1,5 +1,5 @@
 import axios, { isAxiosError } from 'axios';
-import { CreatePost, EditPost, HotPost, Post, PostList } from '@/common/types';
+import { CreatePost, EditPost, HotPost, Post } from '@/common/types';
 
 // export const API_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 // export const API_TEST_URL = import.meta.env.VITE_APP_TEST_URL;
