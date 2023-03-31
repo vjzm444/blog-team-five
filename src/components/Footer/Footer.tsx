@@ -1,6 +1,8 @@
 import React from 'react';
 import './footer.scss';
 import { Link } from 'react-router-dom';
+import { IoIosCall } from 'react-icons/io';
+import { MdEmail } from 'react-icons/md';
 
 const Footer = () => {
   return (
@@ -143,7 +145,49 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-      <footer className='mobile-footer'>mobile footer</footer>
+      <footer className='mobile-footer'>
+        <div className='container'>
+          <div className='footer-company-info'>
+            <div className='footer-company-info-logo-wrapper'>
+              <Link className='link' to='/'>
+                <img
+                  src='https://yozm.wishket.com/static/img/partials/wishket_footer_logo.png'
+                  alt=''
+                />
+              </Link>
+            </div>
+            <div className='footer-main'>
+              <p className='cs'>
+                <Link className='body-2 link' to='tel:0269254849'>
+                  <IoIosCall className='icons' />
+                  (02) 6925-4849
+                </Link>
+                <Link className='body-2 link' to='mailto:help@wishket.com'>
+                  <MdEmail className='icons' />
+                  help@wishket.com
+                </Link>
+                <br />
+              </p>
+              <p className='caption-1 operation-time'>
+                고객센터 운영시간 10:00 ~ 18:00(공휴일 제외)
+              </p>
+            </div>
+            <div className='footer-company-info-detail'>
+              <p className='footer-company-info-description'>
+                <span>
+                  주식회사 위시켓 (대표이사: 박우범) / 서울특별시 강남구 테헤란로 211
+                  한국고등교육재단빌딩 3층 (주)위시켓
+                </span>
+                <span>
+                  사업자등록번호: 209-81-57303 / 통신판매업신고: 제2018-서울강남-02337 호 /
+                  직업정보제공사업 신고번호: J1200020180019
+                </span>
+              </p>
+            </div>
+            <p className='footer-company-info-copyright'>© 2013 Wishket Corp.</p>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
