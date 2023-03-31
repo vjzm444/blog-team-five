@@ -57,6 +57,11 @@
     font-size: 22px;
   }
 }
+@media (max-width: 440px) {
+  .main-intro .container .intro .key-visual-guide-long-point {
+    top: 117px;
+  }
+}
 
 .container .main-list .main-list-title {
   font-size: 22px;
