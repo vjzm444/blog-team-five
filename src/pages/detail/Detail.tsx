@@ -8,6 +8,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { BiEditAlt } from 'react-icons/all';
 import { getCatName, sanitizeHTML } from '@/common/refactor';
 import useFetch from '@/hooks/useFetch';
+import React from 'react';
 
 /*
  * 1. postId에 맞는 포스트 정보를 가져오고 포스트가 가진 카테고리 정보를 이용해 navbar에 표시를 해준다.

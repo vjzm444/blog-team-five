@@ -20,6 +20,13 @@
     margin: 0 auto;
   }
 }
+@media (max-width: 728px) {
+  .container-wrapper .content-container {
+    width: 100%;
+    padding: 0 24px 56px;
+    margin: 0 auto;
+  }
+}
 .container-wrapper .content-container .news-detail-header {
   padding-top: 36px;
 }

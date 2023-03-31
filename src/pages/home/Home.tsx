@@ -5,6 +5,7 @@ import PostCard from '@/components/PostCard/PostCard';
 import { HotPost, Post } from '@/common/types';
 import { getHotPosts } from '@/api/post';
 import { useNavigate } from 'react-router';
+import LetterGuide from '@/components/LetterGuide/LetterGuide';
 
 const Home = () => {
   const [hotPosts, setHotPosts] = useState<HotPost[] | null>(null);
@@ -70,6 +71,7 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <LetterGuide />
     </>
   );
 };

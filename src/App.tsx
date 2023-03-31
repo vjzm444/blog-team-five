@@ -12,14 +12,16 @@ import Category from '@/pages/category/Category';
 import Search from '@/pages/search/Search';
 import useSearchModal from '@/hooks/useSearchModal';
 import NetworkError from '@/pages/error/NetworkError';
+import LetterGuide from '@/components/LetterGuide/LetterGuide';
 
-const Layout = () => {
+const Layout = ({ isDetail }: { isDetail: boolean }) => {
   return (
     <>
       <Header />
       <div className='layout'>
         <Outlet />
       </div>
+      {isDetail && <LetterGuide />}
       <Footer />
     </>
   );
@@ -28,15 +30,11 @@ const Layout = () => {
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Layout />,
+    element: <Layout isDetail={false} />,
     children: [
       {
         path: '/',
         element: <Home />,
-      },
-      {
-        path: '/detail/:id',
-        element: <Detail />,
       },
       {
         path: '/write',
@@ -52,6 +50,16 @@ const router = createBrowserRouter([
       },
     ],
     errorElement: <Error />,
+  },
+  {
+    path: '/detail/:id',
+    element: <Layout isDetail={true} />,
+    children: [
+      {
+        path: '/detail/:id',
+        element: <Detail />,
+      },
+    ],
   },
   {
     path: '/register',
