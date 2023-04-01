@@ -20,16 +20,16 @@ const SearchModal = () => {
     console.log(inputVal);
   };
 
-  const viewNavigate = (newRoute: string, q: string) => {
+  const viewNavigate = (newRoute: string) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (!document.startViewTransition) {
-      return navigate(newRoute, { state: { q } });
+      return navigate(newRoute);
     } else {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return document.startViewTransition(() => {
-        navigate(newRoute, { state: { q } });
+        navigate(newRoute);
       });
     }
   };
@@ -51,9 +51,10 @@ const SearchModal = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const q = inputVal;
     if (e.key === 'Enter') {
+      if (q === '') return;
       setOpenModal((prev) => !prev);
       setInputVal('');
-      viewNavigate('/search', q);
+      viewNavigate(`/search?keyword=${q}`);
       // viewTransitionNav.ts('/search', {
       //   state: {
       //     q,
