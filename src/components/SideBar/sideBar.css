@@ -18,7 +18,6 @@
   right: -288px; /* 이동된 위치 */
   height: 100%;
   background-color: #fff;
-  overflow-y: scroll;
   z-index: 999;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -74,7 +73,7 @@
   opacity: 1;
 }
 .side-bar.active .side-menu-overlay {
-  width: 100%;
+  width: calc(100% - 288px);
   display: block;
   position: fixed;
   top: 0;
