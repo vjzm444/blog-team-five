@@ -3,17 +3,41 @@ import useSearchModal from '@/hooks/useSearchModal';
 import './searchModal.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { MdDeleteOutline } from 'react-icons/md';
 
 const SearchModal = () => {
   const { openModal, setOpenModal } = useSearchModal();
   const inputRef = useRef<HTMLInputElement>(null);
   const [inputVal, setInputVal] = useState<string>('');
+  const [recentSearches, setRecentSearches] = useState<string[]>([]);
+  // const [recentSearches, setRecentSearches] = = useState(
+  //     Object.entries(localStorage).map(([key, value]) => ({ key, value }))
+  // );
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const searches = localStorage.getItem('recentSearches');
+    if (searches) {
+      setRecentSearches(JSON.parse(searches));
+    }
+  }, []);
+
   useEffect(() => {
     if (openModal && inputRef.current) {
       inputRef.current.focus();
     }
   }, [openModal]);
+
+  const handleKeywordDelete = (value: string) => {
+    const filteredSearches = recentSearches.filter((eachVal) => eachVal !== value);
+    localStorage.setItem('recentSearches', JSON.stringify(filteredSearches));
+    setRecentSearches(filteredSearches);
+  };
+
+  const handleAllDelete = () => {
+    localStorage.removeItem('recentSearches');
+    setRecentSearches([]);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputVal(e.target.value);
@@ -51,15 +75,15 @@ const SearchModal = () => {
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const q = inputVal;
     if (e.key === 'Enter') {
-      if (q === '') return;
+      if (q === '' || q.trim() === '') return;
+      // store searched word in localstorage
+      // maximum 5 words
+      const newSearches = [q, ...recentSearches.slice(0, 5)];
+      setRecentSearches(newSearches);
+      localStorage.setItem('recentSearches', JSON.stringify(newSearches));
       setOpenModal((prev) => !prev);
       setInputVal('');
       viewNavigate(`/search?keyword=${q}`);
-      // viewTransitionNav.ts('/search', {
-      //   state: {
-      //     q,
-      //   },
-      // });
     }
   };
 
@@ -88,14 +112,36 @@ const SearchModal = () => {
           <div className='recent-keyword-part'>
             <div className='title'>
               최근검색어
-              {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
-              <div className='sub-action' onClick={() => console.log('전체삭제')}>
+              <button
+                className={recentSearches.length ? 'sub-action active' : 'sub-action'}
+                onClick={handleAllDelete}
+              >
                 전체 삭제
-              </div>
+              </button>
             </div>
             <div className='recent-keyword-part-wrapper empty'>
-              <div className='empty-recent-keyword'>최근 검색어가 없습니다.</div>
-              <div className='recent-keyword-list' id='recentKeywordList'></div>
+              <div
+                className={
+                  recentSearches.length ? 'empty-recent-keyword' : 'empty-recent-keyword active'
+                }
+              >
+                최근 검색어가 없습니다.
+              </div>
+              <div className='recent-keyword-list' id='recentKeywordList'>
+                {recentSearches.map((recentKeywords, idx) => (
+                  <div className='recent-keyword' key={idx}>
+                    <button className='keyword-title' onClick={() => console.log('search')}>
+                      {recentKeywords}
+                    </button>
+                    <button
+                      className='icon-delete-wrapper'
+                      onClick={() => handleKeywordDelete(recentKeywords)}
+                    >
+                      <MdDeleteOutline className='icon-delete'></MdDeleteOutline>
+                    </button>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

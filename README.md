@@ -30,4 +30,5 @@
 - authm/write 페이지 모바일 스타일 적용
 
 
-- search > Test 검색시 test도 같이 검출 가능하게 요구 
+- search > Test 검색시 test도 같이 검출 가능하게 요구
+- 페이지 이동시 > 맨 위로 이동
