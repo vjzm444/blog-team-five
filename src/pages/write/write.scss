@@ -6,7 +6,7 @@
     gap: 20px;
 
     .title-wrapper {
-      flex: 1;
+      flex: 0.5;
       display: flex;
       align-items: center;
       flex-direction: column;
@@ -62,7 +62,7 @@
     height: 200px;
     margin-top: 60px;
     .title-wrapper{
-      flex:1;
+      flex:0.5;
       justify-content: center;
 
       p{
@@ -103,7 +103,7 @@
     }
   }
   .button-wrapper{
-    margin-top: 30px;
+    margin: 30px 0;
     display: flex;
     button{
       font-size: 20px;

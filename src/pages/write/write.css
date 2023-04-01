@@ -6,7 +6,7 @@
   gap: 20px;
 }
 .container.editor .content .title-wrapper {
-  flex: 1;
+  flex: 0.5;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -50,7 +50,7 @@
   margin-top: 60px;
 }
 .container.editor .menu .title-wrapper {
-  flex: 1;
+  flex: 0.5;
   justify-content: center;
 }
 .container.editor .menu .title-wrapper p {
@@ -85,7 +85,7 @@
   color: #AC6EEE;
 }
 .container.editor .button-wrapper {
-  margin-top: 30px;
+  margin: 30px 0;
   display: flex;
 }
 .container.editor .button-wrapper button {

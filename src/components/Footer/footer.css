@@ -99,7 +99,11 @@ footer.pc-footer .footer-main:after {
   footer.pc-footer .footer-company-info .footer-company-info-sns {
     float: right;
   }
-  footer.pc-footer .footer-company-info .footer-company-info-sns .link + .link img {
+  footer.pc-footer .footer-company-info .footer-company-info-sns .link .sns-icon {
+    font-size: 30px;
+    color: #bdbdbd;
+  }
+  footer.pc-footer .footer-company-info .footer-company-info-sns .link + .link {
     margin-left: 12px;
   }
 }

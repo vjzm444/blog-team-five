@@ -3,6 +3,8 @@ import './footer.scss';
 import { Link } from 'react-router-dom';
 import { IoIosCall } from 'react-icons/io';
 import { MdEmail } from 'react-icons/md';
+import { BsGithub } from 'react-icons/bs';
+import { FaInstagramSquare } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -84,8 +86,8 @@ const Footer = () => {
               <Link className='footer-menu-item link' to='tel:82269254849'>
                 02-6925-4849(10:00-18:00, 공휴일 제외)
               </Link>
-              <a className='footer-menu-item' href='mailto:help@wishket.com'>
-                help@wishket.com
+              <a className='footer-menu-item' href='mailto:shseok0674@gmail.com'>
+                shseok0674@gmail.com
               </a>
             </div>
           </div>
@@ -112,22 +114,19 @@ const Footer = () => {
             <div className='footer-company-info-sns'>
               <Link
                 className='link'
-                to='http://www.facebook.com/wishket'
+                to='https://github.com/saramdle/blog-team-five/tree/front-dev'
                 target='_blank'
                 rel='noreferrer'
               >
-                <img
-                  src='https://yozm.wishket.com/static/renewal/img/global/footer_sns_facebook.png'
-                  srcSet='https://yozm.wishket.com/static/renewal/img/global/footer_sns_facebook.png 1x, https://yozm.wishket.com/static/renewal/img/global/footer_sns_facebook@2x.png 2x'
-                  alt='img1'
-                />
+                <BsGithub className='sns-icon' />
               </Link>
-              <Link className='link' to='http://blog.wishket.com/' target='_blank' rel='noreferrer'>
-                <img
-                  src='https://yozm.wishket.com/static/renewal/img/global/footer_sns_blog.png'
-                  srcSet='https://yozm.wishket.com/static/renewal/img/global/footer_sns_blog.png 1x, https://yozm.wishket.com/static/renewal/img/global/footer_sns_blog@2x.png 2x'
-                  alt='img2'
-                />
+              <Link
+                className='link'
+                to='https://www.instagram.com/shseo_k/'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <FaInstagramSquare className='sns-icon' />
               </Link>
               <Link
                 className='link'

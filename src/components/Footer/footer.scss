@@ -113,11 +113,19 @@ footer {
           float: right;
 
           .link {
+
+            .sns-icon{
+              font-size: 30px;
+              color: #bdbdbd;
+            }
+
             & + .link {
-              img {
-                margin-left: 12px;
+              margin-left: 12px;
+              .sns-icon {
+                //margin-left: 12px;
               }
             }
+
           }
         }
 
