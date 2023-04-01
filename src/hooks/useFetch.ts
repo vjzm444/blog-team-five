@@ -1,10 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Post, PostList } from '@/common/types';
 
-export const useFetch = <T extends Post[] | Post | PostList>(
-  param: string | undefined,
-  getDataFunc: (category: string) => Promise<T | null>,
-) => {
+interface FetchProps<T> {
+  getDataFunc: (category: string, num?: number) => Promise<T | null>;
+  param?: string;
+  nextPage?: number;
+}
+
+export const useFetch = <T extends Post[] | Post | PostList>({
+  getDataFunc,
+  param,
+  nextPage,
+}: FetchProps<T>) => {
   const [data, setData] = useState<T | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
@@ -12,7 +19,7 @@ export const useFetch = <T extends Post[] | Post | PostList>(
   const fetchData = useCallback(async (): Promise<void> => {
     try {
       if (param) {
-        const res = await getDataFunc(param);
+        const res = await getDataFunc(param, nextPage);
         setData(res);
       }
     } catch (err) {
@@ -26,7 +33,7 @@ export const useFetch = <T extends Post[] | Post | PostList>(
     } finally {
       setLoading(false);
     }
-  }, [param, getDataFunc]);
+  }, [param, getDataFunc, nextPage]);
 
   useEffect(() => {
     fetchData();

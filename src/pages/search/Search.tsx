@@ -6,12 +6,21 @@ import ListItem from '@/components/List/ListItem';
 import useFetch from '@/hooks/useFetch';
 import './search.scss';
 import PagiNation from '@/components/PagiNation/PagiNation';
+import { useQuery } from '@/pages/category/Category';
 
 // category와 중복되는 코드 -> 컴포넌트화
 const Search = () => {
   const location = useLocation();
+  const query = useQuery().get('nextPage');
   const { q } = location.state;
-  const { data: posts, error, loading } = useFetch<PostList>(q, getSearchedResult);
+  const {
+    data: posts,
+    error,
+    loading,
+  } = useFetch<PostList>({
+    getDataFunc: getSearchedResult,
+    param: q,
+  });
   const navigate = useNavigate();
 
   if (loading) return <div>로딩중..</div>;
@@ -51,7 +60,7 @@ const Search = () => {
             </div>
           )}
         </div>
-        <PagiNation postLen={posts.allCnt} />
+        <PagiNation postLen={posts.allCnt} curPageNum={query} />
       </div>
     </>
   );
