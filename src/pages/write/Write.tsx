@@ -1,10 +1,13 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 import PostEditor from '@/components/PostEditor/PostEditor';
 import { useLocation, useNavigate } from 'react-router';
 import { Post } from '@/common/types';
 import './write.scss';
 import { createPost, sendFormData, updatePost } from '@/api/post';
+import axios, { axiosPrivate } from '@/api/axios';
+import useRefreshToken from '@/hooks/useRefreshToken';
+import useAuth from '@/hooks/useAuth';
 
 const Write = () => {
   const quillRef = useRef<ReactQuill>();
@@ -16,6 +19,37 @@ const Write = () => {
   const [fileUrl, setFileURL] = useState(state?.img);
   const navigate = useNavigate();
   console.log('render');
+
+  // test(access token)
+  // const [users, setUsers] = useState();
+  const { auth } = useAuth();
+  const refresh = useRefreshToken();
+  console.log(auth);
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   const controller = new AbortController();
+  //
+  //   const getUsers = async () => {
+  //     try {
+  //       const response = await axios.get('/users', {
+  //         signal: controller.signal,
+  //       });
+  //       console.log(isMounted, response.data);
+  //       // isMounted && setUsers(response.data);
+  //     } catch (err) {
+  //       console.error(err);
+  //       // navigate('/login', { state: { from: location }, replace: true });
+  //     }
+  //   };
+  //
+  //   getUsers();
+  //
+  //   return () => {
+  //     isMounted = false;
+  //     controller.abort();
+  //   };
+  // }, []);
+
   const upload = async (userFileList?: File | null) => {
     try {
       const formData = new FormData();
@@ -69,30 +103,29 @@ const Write = () => {
   return (
     <>
       <div className='container editor'>
-        <div className='content'>
-          <div className='title-wrapper'>
-            <div className='title-name'>
-              <p>제목</p>
-            </div>
-            <div className='content-name'>
-              <p>내용</p>
-            </div>
+        {/*<button onClick={() => refresh()}>refresh token 얻기</button>*/}
+        <div className='title-wrapper'>
+          <div className='title-name'>
+            <p>제목</p>
           </div>
-          <div className='editor-wrapper'>
-            <input
-              className='title-container'
-              type='text'
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder='제목을 적어주세요'
-            />
-            <div className='editor-container'>
-              <PostEditor quillRef={quillRef} contents={content} setContents={setContent} />
-            </div>
+          <input
+            className='title-container'
+            type='text'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder='제목을 적어주세요'
+          />
+        </div>
+        <div className='editor-wrapper'>
+          <div className='title-name'>
+            <p>내용</p>
+          </div>
+          <div className='editor-container'>
+            <PostEditor quillRef={quillRef} contents={content} setContents={setContent} />
           </div>
         </div>
-        <div className='menu'>
-          <div className='title-wrapper'>
+        <div className='menu-wrapper'>
+          <div className='title-name'>
             <p>기타</p>
           </div>
           <div className='item-wrapper'>
@@ -177,14 +210,19 @@ const Write = () => {
             </div>
           </div>
         </div>
-        <div className='button-wrapper'>
-          {title && content && category && fileUrl ? (
-            <button onClick={handleClick}>제출하기</button>
-          ) : (
-            <button className='impossible' onClick={handleClick} disabled={true}>
-              제출하기
-            </button>
-          )}
+        <div className='buttons'>
+          <div className='button-wrapper'>
+            <button onClick={() => console.log('미리보기')}>미리보기</button>
+          </div>
+          <div className='button-wrapper'>
+            {title && content && category && fileUrl ? (
+              <button onClick={handleClick}>제출하기</button>
+            ) : (
+              <button className='impossible' onClick={handleClick} disabled={true}>
+                제출하기
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </>
