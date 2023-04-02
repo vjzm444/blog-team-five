@@ -13,7 +13,7 @@ const curDate = new Date();
 format(curDate, 'yyyy-MM-dd HH:mm:ss.SSS'); // 2021-10-11 10:30:25.495
 
 export const getElapsedTime = (prevTime: string) => {
-  console.log(prevTime);
+  // console.log(prevTime);
   prevTime = prevTime.replace('T', ' ').split('+')[0];
   const prevDate = new Date(prevTime);
   format(prevDate, 'yyyy-MM-dd HH:mm:ss.SSS'); // 2020-04-08 13:25:30.000

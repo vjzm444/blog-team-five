@@ -49,7 +49,8 @@ const Register = () => {
       // body에 { email, username, password }이지만, 테스트로 {user, pwd}
       const response = await axios.post(
         REGISTER_URL,
-        JSON.stringify({ user: username, pwd: password }),
+        // JSON.stringify({ user: username, pwd: password }),
+        JSON.stringify({ UserNm: username, UserEmail: email, UserPw: password }),
         {
           headers: {
             'Content-Type': 'application/json',

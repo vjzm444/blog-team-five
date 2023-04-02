@@ -1,13 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ReactQuill from 'react-quill';
 import PostEditor from '@/components/PostEditor/PostEditor';
 import { useLocation, useNavigate } from 'react-router';
 import { Post } from '@/common/types';
 import './write.scss';
 import { createPost, sendFormData, updatePost } from '@/api/post';
-import axios, { axiosPrivate } from '@/api/axios';
-import useRefreshToken from '@/hooks/useRefreshToken';
-import useAuth from '@/hooks/useAuth';
 
 const Write = () => {
   const quillRef = useRef<ReactQuill>();
@@ -22,9 +19,9 @@ const Write = () => {
 
   // test(access token)
   // const [users, setUsers] = useState();
-  const { auth } = useAuth();
-  const refresh = useRefreshToken();
-  console.log(auth);
+  // const { auth } = useAuth();
+  // const refresh = useRefreshToken();
+  // console.log(auth);
   // useEffect(() => {
   //   let isMounted = true;
   //   const controller = new AbortController();

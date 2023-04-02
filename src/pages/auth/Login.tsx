@@ -40,6 +40,7 @@ const Login = () => {
       console.log('hi');
       const response = await axios.post(
         LOGIN_URL,
+        // JSON.stringify({ user: userId, pwd: password }),
         JSON.stringify({ user: userId, pwd: password }),
         {
           headers: {
