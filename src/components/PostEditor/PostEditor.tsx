@@ -60,7 +60,8 @@ const PostEditor = ({ quillRef, contents, setContents }: PostEditorProps) => {
       /* 사용자 선택을 지정된 범위로 설정하여 에디터에 포커싱할 수 있다.
                위치 인덱스와 길이를 넣어주면 된다.*/
 
-      quill?.clipboard.dangerouslyPasteHTML(range, `<img src=${url} alt="image" />`);
+      // style이 적용이 안됨...
+      quill?.clipboard.dangerouslyPasteHTML(range, `<img src=${url} width="100%" alt="image2"/>`);
     }; //주어진 인덱스에 HTML로 작성된 내용물을 에디터에 삽입한다.
   }, [sendFormData, quillRef]);
 

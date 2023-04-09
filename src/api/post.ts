@@ -8,7 +8,9 @@ import { CreatePost, EditPost, HotPost, Post, PostList } from '@/common/types';
 // get
 export const getHotPosts = async (): Promise<HotPost[]> => {
   try {
-    const response = await axios.get<HotPost[]>(`/api/postList`);
+    // const response = await axios.get<HotPost[]>(`/api/postList`);
+    const response = await axios.get<HotPost[]>(`/postList.json`);
+
     return response.data;
   } catch (error) {
     if (isAxiosError(error)) {

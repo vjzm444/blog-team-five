@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react';
 import './auth.scss';
 import { Link } from 'react-router-dom';
 import AuthInput from '@/components/AuthInput/AuthInput';
-import axios from '@/api/axios';
 import AuthLogo from '@/components/AuthLogo/AuthLogo';
 import { useNavigate } from 'react-router';
+import axios from 'axios';
 
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const USER_REGEX = /^[A-z][A-z0-9_]{5,23}$/;
 // 1개의 소문자 , 1개의 대문자 , 1개의 숫자, 1개의 특수문자
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = '/register';
+// const REGISTER_URL = '/register';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -46,16 +46,29 @@ const Register = () => {
     e.preventDefault();
     setisClickBtn(true);
     try {
-      // body에 { email, username, password }이지만, 테스트로 {user, pwd}
+      // test용
+      // axios post에서 가져오기
+      // const response = await axios.post(
+      //   REGISTER_URL,
+      //   JSON.stringify({ user: username, pwd: password }),
+      //   {
+      //     headers: {
+      //       'Content-Type': 'application/json',
+      //     },
+      //     withCredentials: true,
+      //   },
+      // );
+
       const response = await axios.post(
-        REGISTER_URL,
+        // REGISTER_URL,
+        'http://175.124.137.189:5555/join',
         // JSON.stringify({ user: username, pwd: password }),
         JSON.stringify({ UserNm: username, UserEmail: email, UserPw: password }),
         {
           headers: {
             'Content-Type': 'application/json',
           },
-          withCredentials: true,
+          // withCredentials: true,
         },
       );
 

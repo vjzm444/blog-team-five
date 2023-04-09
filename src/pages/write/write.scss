@@ -46,6 +46,14 @@
       margin-bottom: 62px;
     }
 
+    @media(max-width: 396px){
+      margin-bottom: 90px;
+    }
+
+    @media(max-width: 326px){
+      margin-bottom: 114px;
+    }
+
     .editor-container {
       //overflow: scroll;
       height: 500px;
