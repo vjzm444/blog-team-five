@@ -1,0 +1,87 @@
+$fontColor: #616161;
+$fontHoverColor: #212121;
+
+.app {
+  //display: flex;
+  //justify-content: center;
+  //.container{
+  //  width: 100%;
+  //  min-height: 100vh;
+  //  //width: 95%;
+  //  //margin: auto;
+  //
+  //
+  //}
+  .link {
+    text-decoration: none;
+  }
+
+  .flex-box {
+    display: flex;
+    align-items: center;
+  }
+
+  .btn{
+    cursor: pointer;
+  }
+
+  .list-text.card-title, .item-title.link-text {
+    display: block;
+  }
+
+  .mr-4 {
+    margin-right: 4px !important;
+  }
+
+  .mb6{
+    margin-bottom: 6px;
+  }
+
+  .mb16{
+    margin-bottom: 16px;
+  }
+  .mb24{
+    margin-bottom: 24px;
+  }
+
+  .mb32{
+    margin-bottom: 32px;
+  }
+
+  .text600{
+    color: #616161;
+  }
+
+  .body-2{
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  .layout {
+    @media (min-width: 729px) {
+      min-height: unset;
+      //min-height: 960px;
+    }
+
+    @media (max-width: 728px){
+      min-height: 480px;
+    }
+  }
+
+  .container {
+    margin: 0 auto;
+    @media (min-width: 729px) {
+      width: 1080px;
+    }
+
+    @media (max-width: 728px) {
+      width: 100%;
+    }
+  }
+
+  &.search-modal-open{
+    width: 100%;
+    position: fixed;
+  }
+}

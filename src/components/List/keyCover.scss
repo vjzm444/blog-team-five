@@ -1,0 +1,26 @@
+.list-key-visual {
+  position: relative;
+
+  .list-key-visual-image {
+    width: 100%;
+    object-fit: cover;
+
+    @media (max-width: 728px){
+      height: 180px;
+    }
+  }
+
+  .list-key-visual-title {
+    width: 100%;
+    position: absolute;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: center;
+    color: #14171f;
+    top: 75px;
+  }
+}
