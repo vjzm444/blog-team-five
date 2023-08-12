@@ -1,0 +1,46 @@
+@import '../category/category.scss';
+
+.list-cover{
+  @media (max-width: 728px){
+    margin-top: 15px;
+    padding: 0 24px;
+    width: 100%;
+  }
+}
+
+.search-result-empty-box{
+  padding-top: 60px;
+
+  .search-result-empty-title{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.63;
+    color: #14171f;
+    margin-bottom: 40px;
+  }
+
+  .search-result-empty-guide-phase{
+    position: relative;
+    padding-left: 20px;
+    color: #1f171f;
+    line-height:1.71;
+    font-size: 14px;
+    margin-bottom: 8px;
+
+    &::before{
+      content: '•';
+      position: absolute;
+      top: 0;
+      left: 4px;
+      width: 20px;
+    }
+  }
+
+  @media(min-height: 729px){
+    margin-bottom: 120px;
+  }
+
+  @media(max-height: 728px){
+    margin-bottom: 120px;
+  }
+}

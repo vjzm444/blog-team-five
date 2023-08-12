@@ -1,0 +1,36 @@
+.content-meta {
+  width: 100%;
+  font-size: 13px;
+  font-weight: 400;
+  color: #424242;
+}
+.content-meta .author-image {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border: solid 1px #e0e0e0;
+  border-radius: 10px;
+}
+.content-meta .content-meta-elem {
+  display: inline-block;
+  line-height: 20px;
+  margin-right: 8px;
+  color: rgb(66, 66, 66);
+}
+.content-meta .content-meta-elem.content-meta-sep {
+  width: 1px;
+  color: #e0e0e0;
+}
+.content-meta .content-meta-view {
+  margin-left: auto;
+  line-height: 1.54;
+  font-weight: normal;
+  color: #9e9e9e;
+}
+.content-meta .content-meta-view img {
+  margin-right: 4px;
+  position: relative;
+  top: -1px;
+}
+
+/*# sourceMappingURL=meta.css.map */

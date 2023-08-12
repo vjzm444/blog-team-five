@@ -1,0 +1,66 @@
+@charset "UTF-8";
+@media (min-width: 729px) {
+  .list-cover {
+    width: 704px;
+    margin: 0 auto;
+  }
+  .list-cover.search-empty-cover {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 728px) {
+  .list-cover {
+    margin-top: 15px;
+    padding: 24px;
+    width: 100%;
+  }
+  .list-cover.search-empty-cover {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 728px) {
+  .list-cover {
+    margin-top: 15px;
+    padding: 0 24px;
+    width: 100%;
+  }
+}
+
+.search-result-empty-box {
+  padding-top: 60px;
+}
+.search-result-empty-box .search-result-empty-title {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.63;
+  color: #14171f;
+  margin-bottom: 40px;
+}
+.search-result-empty-box .search-result-empty-guide-phase {
+  position: relative;
+  padding-left: 20px;
+  color: #1f171f;
+  line-height: 1.71;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.search-result-empty-box .search-result-empty-guide-phase::before {
+  content: "•";
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 20px;
+}
+@media (min-height: 729px) {
+  .search-result-empty-box {
+    margin-bottom: 120px;
+  }
+}
+@media (max-height: 728px) {
+  .search-result-empty-box {
+    margin-bottom: 120px;
+  }
+}
+
+/*# sourceMappingURL=search.css.map */

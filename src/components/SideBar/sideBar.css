@@ -1,0 +1,92 @@
+@charset "UTF-8";
+.side-bar {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 1100;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: opacity 0.3s ease-in-out;
+}
+.side-bar .side-menu {
+  width: 288px;
+  position: fixed;
+  top: 0;
+  right: -288px; /* 이동된 위치 */
+  height: 100%;
+  background-color: #fff;
+  z-index: 999;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.side-bar .side-menu .side-header {
+  padding: 20px 24px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  align-items: center;
+}
+.side-bar .side-menu .side-header img {
+  width: 40px;
+  height: 100%;
+  object-fit: cover;
+}
+.side-bar .side-menu .side-box {
+  border-bottom: 1px solid #e0e0e0;
+  display: block;
+}
+.side-bar .side-menu .side-box .side-menu-content {
+  display: block;
+  padding: 24px;
+  color: #212121;
+  font-size: 16px;
+  line-height: 1.63;
+}
+.side-bar .side-menu .side-box .side-menu-content .btn {
+  display: block;
+  width: 100%;
+  padding: 11px 24px;
+  border-radius: 4px;
+  color: #616161;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.71;
+}
+.side-bar .side-menu .side-box .side-menu-content .btn:not(:first-child) {
+  margin-top: 16px;
+  color: #fff;
+  background-color: #6b16ee;
+  border: none;
+}
+.side-bar .side-menu-overlay {
+  display: none;
+}
+.side-bar.active {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.2s ease-in-out;
+}
+.side-bar.active .side-menu {
+  transform: translateX(-288px); /* 이동할 거리 */
+  opacity: 1;
+}
+.side-bar.active .side-menu-overlay {
+  width: calc(100% - 288px);
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 999;
+}
+.side-bar.active .side-menu-overlay button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+/*# sourceMappingURL=sideBar.css.map */

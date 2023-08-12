@@ -1,0 +1,69 @@
+@media (min-width: 729px) {
+  .main-list-row .list-item-link {
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 320px;
+  }
+  .main-list-row .list-item-link + .list-item-link {
+    margin-left: 60px;
+  }
+}
+@media (max-width: 728px) {
+  .main-list-row .list-item-link {
+    display: block;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+  }
+}
+.main-list-row .list-item-link .list-item {
+  width: 100%;
+}
+.main-list-row .list-item-link .list-item .list-item-thumbnail {
+  margin-bottom: 24px;
+}
+.main-list-row .list-item-link .list-item .list-item-thumbnail .thumbnail-image {
+  width: 100%;
+  height: 180px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #e0e0e0;
+}
+.main-list-row .list-item-link .list-item .item-main {
+  display: block;
+  margin-right: 20px;
+}
+.main-list-row .list-item-link .list-item .item-main .item-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #000000;
+}
+.main-list-row .list-item-link .list-item .item-main .list-item-description {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  margin: 20px 0;
+  font-size: 13px;
+  line-height: 1.54;
+  color: #616161;
+  word-break: break-all;
+}
+.main-list-row .list-item-link .list-item .item-main .author-info {
+  display: flex;
+  align-items: center;
+}
+.main-list-row .list-item-link .list-item .item-main .author-info .author-image {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 10px;
+  border: solid 1px #e0e0e0;
+}
+
+/*# sourceMappingURL=postcard.css.map */

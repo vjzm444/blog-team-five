@@ -1,0 +1,21 @@
+@media (min-width: 729px) {
+  .list-cover {
+    width: 704px;
+    margin: 0 auto;
+  }
+  .list-cover.search-empty-cover {
+    margin-top: 20px;
+  }
+}
+@media (max-width: 728px) {
+  .list-cover {
+    margin-top: 15px;
+    padding: 24px;
+    width: 100%;
+  }
+  .list-cover.search-empty-cover {
+    margin-top: 0;
+  }
+}
+
+/*# sourceMappingURL=category.css.map */
